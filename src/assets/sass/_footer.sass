@@ -1,0 +1,80 @@
+// footer
+.footer
+	margin-top: auto
+	+openAnimation
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+
+		padding: 50px 0 15px 0
+
+		border-top: 1px solid $borderGray
+
+	&-block
+		display: flex
+
+		&-logos
+			&-logo
+				&__image
+					display: block
+					user-select: none
+					width: 150px
+
+					will-change: transform
+
+					+transition
+
+					&:active
+						+transformScale
+
+		&-contact
+			margin-left: 75px
+
+			&-email-wrapper
+				display: flex
+
+				margin-bottom: 50px
+
+			&-email
+				margin-right: 15px
+
+				padding: 8px 12px
+
+				min-width: 250px
+
+				background-color: $backgroundGray
+
+				border-radius: 15px
+
+				will-change: transform
+
+				+transition
+
+				&:active
+					+transformScale
+
+				&:last-child
+					margin-right: 0
+
+				&__subtitle
+					font-size: 16px
+					margin-bottom: 5px
+
+				&__email
+					font-size: 22px
+
+	&-nav
+		&__link
+			display: block
+			margin-bottom: 15px
+			+transition
+
+			&:last-child
+				margin-right: 0
+
+			&.active
+				color: $mainColor
+
+			&:hover
+				color: $mainColor

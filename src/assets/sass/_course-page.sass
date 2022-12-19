@@ -1,0 +1,648 @@
+// course-page
+.course-page
+	&__btn
+		position: fixed
+		z-index: -1
+
+		bottom: 30px
+		right: 30px
+
+		min-width: 300px
+
+		opacity: 0
+
+		+transition
+		+boxShadow
+
+		&.active
+			opacity: 1
+			z-index: 15
+
+		& > span
+			color: rgba(225, 225, 225, 0.7)
+			padding: 0 5px
+			text-decoration: line-through
+
+	&-main
+		margin: 25px 0 75px 0
+		+openAnimation
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+
+		&-text
+			padding: 25px 0
+			width: 50%
+
+			&-subinfo
+				display: flex
+				flex-wrap: wrap
+				align-items: center
+
+				font-size: 21px
+
+				&-hobjob-production
+					width: 220px
+
+					display: inline-flex
+					justify-content: center
+					align-items: center
+
+					margin-right: 25px
+					margin-bottom: 15px
+
+					&__image
+						user-select: none
+						pointer-events: none
+
+						width: 100%
+
+				&__category
+					margin-bottom: 15px
+
+			&__title
+				font-size: 48px
+
+			&__description
+				margin-top: 25px
+
+			&-master
+				padding: 15px
+
+				margin-top: 50px
+
+				display: inline-flex
+				align-items: center
+
+				background-color: $backgroundGray
+
+				will-change: transform
+
+				+borderRadiusBlock
+				+transition
+
+				&:hover
+					+transformScale
+
+				&-avatar
+					width: 50px
+					height: 50px
+					border-radius: 50%
+					margin-right: 15px
+					+backgroundSetting
+
+				&__name
+					font-size: 21px
+
+			&__btn
+				margin-top: 25px
+				width: 100%
+
+				& > span
+					color: rgba(225, 225, 225, 0.7)
+					padding: 0 10px
+					text-decoration: line-through
+
+		&-image
+			width: 45%
+			min-height: 100%
+
+			+backgroundSetting
+			+borderRadiusBlock
+
+	&-lessons
+		margin: 50px 0
+		+openAnimation
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+			align-items: flex-start
+
+		&-video
+			top: 50px
+			position: sticky
+			width: 50%
+
+			display: flex
+			justify-content: center
+			align-items: center
+
+			&.disabled video
+				opacity: 0
+				pointer-events: none
+				user-select: none
+
+			&-plaecholder
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				align-items: flex-start
+
+				z-index: 10
+
+				position: absolute
+				left: 0
+				top: 0
+
+				padding: 15px 20px
+
+				width: 100%
+				height: 100%
+
+				background-color: $backgroundGray
+
+				+borderRadiusBlock
+				+openPopup
+
+				&.close
+					+closePopup
+
+				&__description
+					line-height: 1.3em
+
+					font-size: 56px
+
+				&__link
+					display: inline-block
+					border-bottom: 3px solid $mainColor
+					font-size: 52px
+					color: $mainColor
+
+					& > span
+						color: #EACAAA
+						padding: 0 5px
+						text-decoration: line-through
+
+		&-list
+			position: relative
+			width: 45%
+
+			&__title
+				margin-bottom: 25px
+				font-size: 42px
+
+			&-item
+				user-select: none
+				cursor: pointer
+				display: block
+
+				padding: 20px
+				margin-bottom: 10px
+
+				background-color: $backgroundGray
+
+				will-change: transform
+
+				+transition
+				+borderRadiusBlock
+
+				&:hover
+					+transformScale
+
+				&:last-child
+					margin-bottom: 0
+
+				&-top
+					display: flex
+					align-items: center
+					justify-content: space-between
+
+					&__title
+						font-size: 24px
+						color: $black
+
+						& > span
+							color: $gray
+							font-size: 18px
+							margin-right: 10px
+
+				&__description
+					margin-top: 15px
+					font-size: 21px
+
+			&-item-shadow
+				z-index: 2
+
+				display: none
+
+				bottom: 0
+				left: 0
+				position: absolute
+
+				border-radius: 0px 0px 25px 25px
+
+				width: 100%
+				height: 50px
+
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.3) 80%)
+
+	&-materials
+		margin: 75px 0
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+
+			padding: 35px
+			background-color: $backgroundGray
+
+			min-height: 300px
+
+			overflow: hidden
+
+			+borderRadiusBlock
+
+		&-modal-wrapper
+			position: fixed
+
+			top: 0
+			left: 0
+
+			width: 100%
+			height: 100%
+
+			display: flex
+			justify-content: center
+			align-items: center
+
+			background-color: $blackTransparency
+
+			z-index: 100
+
+			+transition
+
+			+openAnimation
+
+			&.close
+				+closeAnimation
+
+		&-modal
+			position: relative
+
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: flex-start
+
+			padding: 15px 20px
+
+			width: 65%
+
+			background-color: $white
+
+			+borderRadiusBlock
+
+			+openPopup
+
+			&.close
+				+closePopup
+
+			&__description
+				line-height: 1.3em
+
+				max-width: 80%
+
+				font-size: 54px
+
+			&__link
+				margin-top: 100px
+				display: inline-block
+				border-bottom: 3px solid $mainColor
+				font-size: 54px
+				color: $mainColor
+
+			&-close
+				cursor: pointer
+
+				position: absolute
+
+				top: 20px
+				right: 25px
+
+		&__title
+			width: 50%
+
+		&-items-wrapper
+			width: 49%
+
+		&-item
+			cursor: pointer
+			display: flex
+			align-items: center
+
+			margin-bottom: 25px
+
+			will-change: transform
+
+			+borderRadiusBlock
+			+transition
+
+			&:last-child
+				margin-bottom: 0
+
+			&:hover
+				+transformScale
+
+			&-icon
+				display: flex
+				align-items: center
+
+				& svg
+					fill: $mainColor
+
+			&__title
+				font-size: 24px
+				margin-left: 10px
+				color: $mainColor
+
+	&-skills
+		margin: 75px 0
+
+		&-items-wrapper
+			display: flex
+			justify-content: space-between
+
+		&-item
+			width: 32%
+
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+
+			padding: 35px
+			background-color: $backgroundGray
+
+			will-change: transform
+
+			+borderRadiusBlock
+			+transition
+
+			&:hover
+				color: $white
+				background-color: $mainColor
+
+				+transformScale
+
+			&__title
+				font-size: 36px
+
+			&__description
+				margin-top: 25px
+				font-size: 21px
+
+	&-use-skills
+		margin: 75px 0
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+
+		&-block
+			&-title
+				width: 45%
+
+				&-icon
+					width: 400px
+					margin-top: 125px
+
+					& > svg
+						width: 100%
+
+			&-text
+				width: 50%
+
+				&-item
+					padding-bottom: 35px
+					margin-bottom: 35px
+
+					border-bottom: 1px solid $borderGray
+
+					&:last-child
+						margin-bottom: 0
+
+					&__title
+						font-size: 36px
+
+					&__description
+						margin-top: 25px
+						font-size: 21px
+
+	&-comparison-courses
+		margin: 75px 0
+
+		&-block-wrapper
+			display: flex
+			justify-content: space-between
+
+		&-block-offline
+			width: 49%
+			padding: 35px
+			background-color: $backgroundGray
+
+			+borderRadiusBlock
+
+			&__title
+				font-size: 42px
+				margin-bottom: 35px
+
+			&-item
+				width: 85%
+
+				&__description
+					position: relative
+					font-size: 21px
+					margin-bottom: 15px
+
+					margin-left: 25px
+
+					&::before
+						content: ""
+						position: absolute
+
+						width: 6px
+						height: 6px
+
+						display: block
+
+						background-color: $black
+
+						left: -20px
+						top: 13px
+
+						border-radius: 50%
+
+					&:last-child
+						margin-bottom: 0
+
+					& span
+						color: $gray
+						margin-right: 5px
+
+		&-block-hobjob
+			width: 49%
+			padding: 35px
+			background-color: $backgroundGray
+
+			+borderRadiusBlock
+
+			&__title
+				font-size: 42px
+				margin-bottom: 35px
+
+			&-item
+				&__description
+					font-size: 21px
+					color: $mainColor
+					margin-bottom: 5px
+
+					&:last-child
+						margin-bottom: 0
+
+					& > svg
+						width: 17px
+						margin-right: 10px
+
+			&-image
+				margin-top: 35px
+
+				&__image
+					width: 100%
+
+					user-select: none
+					pointer-events: none
+
+					+borderRadiusBlock
+
+			&__btn
+				margin-top: 50px
+				width: 100%
+
+	&-passing
+		margin: 75px 0
+
+		&__title
+			margin-bottom: 100px
+
+		&__img
+			pointer-events: none
+			user-select: none
+
+			width: 100%
+
+	&-tools
+		margin: 75px 0
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+
+		&__title
+			width: 50%
+
+		&-items-wrapper
+			width: 45%
+
+		&__item
+			position: relative
+
+			font-size: 24px
+
+			padding-left: 25px
+			padding-bottom: 25px
+
+			border-bottom: 1px solid $borderGray
+
+			margin-bottom: 25px
+
+			&::before
+				content: ""
+				position: absolute
+
+				width: 6px
+				height: 6px
+
+				display: block
+
+				background-color: $black
+
+				left: 0
+				top: 13px
+
+				border-radius: 50%
+
+	&-master
+		margin: 50px 0
+
+		&-wrapper
+			display: flex
+
+			padding: 35px
+			background-color: $backgroundGray
+
+			+borderRadiusBlock
+
+		&__title
+			font-size: 48px
+			margin-bottom: 25px
+
+		&__description
+			margin-bottom: 75px
+
+		&__btn
+			width: 400px
+
+		&-img
+			margin-right: 75px
+
+			width: 250px
+			min-width: 250px
+
+			height: 250px
+
+			border-radius: 50%
+
+			+backgroundSetting
+
+	&-faq
+		margin: 75px 0
+
+		&-wrapper
+			display: flex
+			justify-content: space-between
+
+		&__title
+			width: 45%
+
+		&-items-wrapper
+			width: 50%
+
+		&-item
+			padding: 35px
+
+			background-color: $backgroundGray
+
+			margin-bottom: 10px
+
+			will-change: transform
+
+			+borderRadiusBlock
+
+			+transition
+
+			&:hover
+				color: $white
+				background-color: $mainColor
+
+				+transformScale
+
+			&:last-child
+				margin-bottom: 0
+
+			&__title
+				font-size: 28px
+				margin-bottom: 15px
+
+			&__description
+				font-size: 21px
