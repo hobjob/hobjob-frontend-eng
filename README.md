@@ -1,4 +1,4 @@
-### HobJob (frontend) - Платформа для прохождения курсов по подписке
+### HobJob (frontend) - Платформа для прохождения курсов по подписке (eng)
 
 ## Стек технологий
 
@@ -13,7 +13,7 @@
 Клонируйте репозиторий.
 
 ```
-git clone https://github.com/hobjob/hobjob-frontend.git
+git clone https://github.com/hobjob/hobjob-frontend-eng.git
 ```
 
 Переход в рабочий каталог.
