@@ -24,8 +24,8 @@ const Login: React.FC = () => {
             {!localStorage.getItem("accessToken") ? (
                 <section className="reglog">
                     <div className="container">
-                        <div className="reglog-wrapper">
-                            <div className="reglog-block-wrapper">
+                        <div className="reglog-wrapper center">
+                            <div className="reglog-form-wrapper">
                                 <LoginForm onSubmit={onSubmit} />
                             </div>
                         </div>

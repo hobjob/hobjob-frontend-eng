@@ -17,17 +17,17 @@ export const validatePassword = (values: validatePasswordValues) => {
     if (!values.password) {
         errors.password = "The field cannot be empty";
     } else if (values.password.length > defaultMax) {
-        errors.password = `No more ${defaultMax} symbols`;
+        errors.password = `No more than ${defaultMax} characters`;
     } else if (values.password.length < defaultMin) {
-        errors.password = `Not less than ${defaultMin} symbols`;
+        errors.password = `At least ${defaultMin} characters`;
     }
 
     if (!values.password_repeat) {
         errors.password_repeat = "The field cannot be empty";
     } else if (values.password_repeat.length > defaultMax) {
-        errors.password_repeat = `No more ${defaultMax} symbols`;
+        errors.password_repeat = `No more than ${defaultMax} characters`;
     } else if (values.password_repeat.length < defaultMin) {
-        errors.password_repeat = `Not less than ${defaultMin} symbols`;
+        errors.password_repeat = `At least ${defaultMin} characters`;
     } else if (values.password !== values.password_repeat) {
         errors.password_repeat = `Пароли не равны`;
     }

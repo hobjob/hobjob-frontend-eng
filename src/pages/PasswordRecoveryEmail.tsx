@@ -28,21 +28,13 @@ const PasswordRecoveryEmail: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>Восстановить пароль</title>
+                <title>Restore password</title>
             </Helmet>
             {!localStorage.getItem("accessToken") ? (
                 <section className="reglog">
                     <div className="container">
-                        <div className="reglog-wrapper">
-                            <Link to="/" className="reglog-logo">
-                                <img
-                                    src={Logo}
-                                    alt="HobJob"
-                                    className="reglog-logo__img"
-                                />
-                            </Link>
-
-                            <div className="reglog-block-wrapper">
+                        <div className="reglog-wrapper center">
+                            <div className="reglog-form-wrapper">
                                 {emailStatus === "success" ? (
                                     <PasswordRecoveryEmailSuccess />
                                 ) : (

@@ -1,6 +1,8 @@
 // course-page
 .course-page
 	&__btn
+		display: block
+
 		position: fixed
 		z-index: -1
 
@@ -14,14 +16,18 @@
 		+transition
 		+boxShadow
 
-		&.active
-			opacity: 1
-			z-index: 15
-
 		& > span
 			color: rgba(225, 225, 225, 0.7)
 			padding: 0 5px
 			text-decoration: line-through
+
+		&.visible
+			opacity: 1
+			z-index: 15
+
+		&.active
+			opacity: 0 !important
+			z-index: -1
 
 	&-main
 		margin: 25px 0 75px 0
@@ -162,12 +168,13 @@
 				&__description
 					line-height: 1.3em
 
-					font-size: 56px
+					font-size: 54px
 
 				&__link
+					cursor: pointer
 					display: inline-block
 					border-bottom: 3px solid $mainColor
-					font-size: 52px
+					font-size: 48px
 					color: $mainColor
 
 					& > span
@@ -308,6 +315,7 @@
 
 			&__link
 				margin-top: 100px
+				cursor: pointer
 				display: inline-block
 				border-bottom: 3px solid $mainColor
 				font-size: 54px
@@ -387,9 +395,9 @@
 
 			&__title
 				font-size: 36px
+				margin-bottom: 25px
 
 			&__description
-				margin-top: 25px
 				font-size: 21px
 
 	&-use-skills
@@ -428,6 +436,379 @@
 					&__description
 						margin-top: 25px
 						font-size: 21px
+
+	&-feedbacks
+		margin: 75px 0
+
+		&-slider
+			position: relative
+			margin-top: 75px
+
+			&-carousel
+				width: 100%
+
+				&__image
+					width: 100%
+
+					user-select: none
+					pointer-events: none
+
+			&-arrow-wrapper
+				margin-top: 35px
+
+				display: flex
+				align-items: center
+				justify-content: center
+
+			&-arrow
+				margin: 0 10px
+
+				width: 40px
+				height: 40px
+
+				cursor: pointer
+				will-change: transform
+
+				&  > svg
+					width: 100%
+					height: 100%
+
+					+transition
+
+					&:active
+						+transformScale
+
+				&.prev
+					left: 0
+
+				&.next
+					right: 0
+
+	&-price
+		margin: 75px 0
+
+		&-blocks
+			padding: 35px
+			background-color: $backgroundGray
+
+			display: flex
+			justify-content: space-between
+
+			+borderRadiusBlock
+			+openPopup
+
+			&.close
+				+closePopup
+
+			&-subscribe
+				width: 49%
+				background-color: $white
+
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+
+				+borderRadiusBlock
+
+				&-text
+					padding: 35px
+
+					&__subprice
+						font-size: 24px
+						margin-bottom: 10px
+
+					&__price
+						font-size: 54px
+
+						& > span
+							font-size: 28px
+
+					&-list
+						margin-top: 25px
+
+						&__item
+							display: flex
+							align-items: center
+
+							color: $mainColor
+							font-size: 21px
+							margin-bottom: 5px
+
+							&:last-child
+								margin-bottom: 0
+
+							& svg
+								margin-right: 7px
+
+						&-hobjob-good
+							display: flex
+							align-items: center
+
+							& svg
+								margin-right: 7px
+
+							&-text
+								display: flex
+								align-items: center
+
+								&__logo
+									user-select: none
+									pointer-events: none
+
+									width: 150px
+
+								&__text
+									margin-left: 7px
+
+									display: flex
+									align-items: center
+
+									color: $mainColor
+									font-size: 21px
+
+					&__btn
+						margin-top: 25px
+						width: 100%
+
+				&-image
+					padding-bottom: 35px
+					width: 100%
+
+					&__image
+						user-select: none
+						pointer-events: none
+
+						width: 100%
+
+				&-image-media
+					display: none
+					width: 45%
+					height: auto
+
+					+backgroundSetting
+					+borderRadiusBlock
+
+			&-buy
+				position: relative
+				width: 49%
+				padding: 35px
+				background-color: $white
+
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+
+				+borderRadiusBlock
+
+				&-text
+					&__subprice
+						font-size: 24px
+						margin-bottom: 10px
+
+					&-price
+						display: flex
+						align-items: flex-end
+
+						&__title
+							font-size: 54px
+
+							& > span
+								font-size: 32px
+								text-decoration: line-through
+								margin-left: 15px
+								color: $gray
+
+						&__sale
+							display: flex
+							justify-content: center
+							align-items: center
+
+							position: absolute
+							right: 20px
+							top: 20px
+
+							width: 70px
+							height: 70px
+
+							font-size: 21px
+							color: $white
+							background-color: $mainColor
+							border-radius: 50%
+
+					&-list
+						margin-top: 15px
+
+						&__item
+							display: flex
+							align-items: center
+
+							color: $mainColor
+							font-size: 21px
+							margin-bottom: 5px
+
+							&:last-child
+								margin-bottom: 0
+
+							& svg
+								margin-right: 7px
+
+					&__btn
+						margin-top: 25px
+						width: 100%
+
+				&-image
+					padding-top: 35px
+					width: 100%
+
+					&__image
+						user-select: none
+						pointer-events: none
+
+						width: 100%
+						+borderRadiusBlock
+
+				&-image-media
+					display: none
+					width: 45%
+					height: auto
+
+					+backgroundSetting
+					+borderRadiusBlock
+
+		&-subscribe-rates
+			padding: 35px 35px 50px 35px
+			background-color: $backgroundGray
+
+			+borderRadiusBlock
+			+openPopup
+
+			&.close
+				+closePopup
+
+			&-text
+				display: flex
+				justify-content: space-between
+				align-items: center
+
+				margin-bottom: 75px
+
+				&-left
+					width: 40%
+
+					&__back
+						background-color: transparent
+						border: none
+
+						display: block
+						font-size: 24px
+						color: $gray
+						cursor: pointer
+
+						margin-bottom: 25px
+
+					&__title
+						font-size: 42px
+
+				&-timer
+					display: flex
+
+					&-block
+						display: flex
+						justify-content: center
+						align-items: center
+						flex-direction: column
+
+						margin: 0 5px
+
+						width: 95px
+						height: 95px
+
+						text-align: center
+
+						background-color: $mainColor
+						color: $white
+
+						+borderRadiusBlock
+
+						&__title
+							font-size: 30px
+
+						&__subtitle
+							font-size: 21px
+
+			&-blocks
+				display: flex
+				justify-content: space-between
+
+				&-block
+					display: flex
+					flex-direction: column
+					justify-content: space-between
+
+					position: relative
+
+					padding: 35px
+					width: 32%
+					background-color: $white
+
+					transform: scale(0.92)
+
+					+borderRadiusBlock
+
+					&:nth-child(2n)
+						transform: scale(1.05)
+
+					&__sale
+						display: flex
+						justify-content: center
+						align-items: center
+
+						position: absolute
+						right: 15px
+						top: 15px
+
+						width: 50px
+						height: 50px
+
+						font-size: 15px
+						color: $white
+						background-color: $mainColor
+						border-radius: 50%
+
+					&-top-text
+						margin-bottom: 50px
+
+						&__subtitle
+							font-size: 21px
+							margin-bottom: 10px
+
+						&__title
+							font-size: 32px
+
+					&-middle-text
+						margin-bottom: 50px
+
+						&__price
+							font-size: 58px
+							margin-bottom: 5px
+
+							& > span
+								font-size: 32px
+								color: $gray
+								text-decoration: line-through
+
+						&__subprice
+							font-size: 21px
+
+					&-bottom-text
+						&__btn
+							width: 100%
+							margin-bottom: 10px
+
+						&__subbtn
+							font-size: 15px
+							text-align: center
+							color: $gray
 
 	&-comparison-courses
 		margin: 75px 0

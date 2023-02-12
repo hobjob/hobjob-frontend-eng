@@ -1,8 +1,9 @@
 import moment from "moment";
 
-import { Image } from "./IImage";
+import { Image } from "../IImage";
 
 interface UserInfoSubscribe {
+	auto: boolean;
 	working: boolean;
 
 	typeSubscribe: string;
@@ -17,21 +18,42 @@ interface UserInfoSubscribe {
 
 	stoppedSubscribe: string;
 	lastDebitStoppedSubscribe: string;
+
+	paymentId: string
+}
+
+export interface UserInfoCourseBuy {
+	courseId: string;
+	completedLessons: number[];
+	dateCreate: string;
+	totalLessons: number
+
+	title: string;
+	image: Image;
+	masterId: string
+}
+
+export interface UserInfoCourseSubscribe {
+	courseId: string;
+	completedLessons: number[];
+	dateCreate: string;
+
+	totalLessons: number;
+
+	visible: boolean;
+
+	title: string;
+	image: Image;
+	masterId: string
 }
 
 export interface UserInfoCourse {
-	courseId: string;
-	completedLessons: { [key: number]: number };
-	dateCreate: string;
-
-	lessons: { countViewingDuration: number }[];
-
-	visible: boolean;
+	buy: UserInfoCourseBuy[]
+	subscribe: UserInfoCourseSubscribe[]
 }
 
 interface UserInfoPayment {
-	auto: boolean;
-	number: string;
+	title: string,
 }
 
 export interface UserInfo {
@@ -46,10 +68,6 @@ export interface UserInfo {
 	phone: string;
 
 	subscribe: UserInfoSubscribe;
-	courses: UserInfoCourse[];
+	courses: UserInfoCourse;
 	payment: UserInfoPayment;
-}
-
-export interface UserInfoState extends Omit<UserInfo, "courses"> {
-	courses: { [key: string]: UserInfoCourse };
 }

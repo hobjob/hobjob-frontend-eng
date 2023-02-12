@@ -1,24 +1,23 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import {CourseGood} from "../../../models/ICourseGood";
+import {CourseGood} from "../../../models/Course/ICourseGood";
 import {Category} from "../../../models/ICategory";
 import {Master} from "../../../models/IMaster";
 
 interface CoursePageMainProps extends CourseGood {
     categories: {[key: string]: Category};
     master: Master;
-    isLogin: boolean;
 }
 
 const CoursePageMain: React.FC<CoursePageMainProps> = ({
+	_id,
     category,
     title,
     description,
     master,
     categories,
     image,
-    isLogin,
     price,
     oldPrice,
 }) => {
@@ -45,8 +44,8 @@ const CoursePageMain: React.FC<CoursePageMainProps> = ({
                         </p>
 
                         {master ? (
-                            <a
-                                href={master.socials.inst}
+                            <Link
+                                to={`/master/${master._id}`}
                                 className="course-page-main-text-master"
                             >
                                 <div
@@ -62,24 +61,15 @@ const CoursePageMain: React.FC<CoursePageMainProps> = ({
                                         </>
                                     ) : null}
                                 </h4>
-                            </a>
+                            </Link>
                         ) : null}
 
-                        {isLogin ? (
-                            <Link
-                                to="/go/training"
-                                className="btn course-page-main-text__btn"
-                            >
-                                Go to my training
-                            </Link>
-                        ) : (
-                            <Link
-                                to="/go/register"
-                                className="btn course-page-main-text__btn"
-                            >
-                                Buy for <span>{oldPrice}₹</span> {price}₹
-                            </Link>
-                        )}
+                        <Link
+                            to={`/go/register?course=${_id}`}
+                            className="btn course-page-main-text__btn"
+                        >
+                            Buy for <span>{oldPrice}₹</span> {price}₹
+                        </Link>
                     </div>
                     <div
                         className="course-page-main-image"

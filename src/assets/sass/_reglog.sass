@@ -11,13 +11,18 @@
 
 	&-wrapper
 		display: flex
-		flex-direction: column
 		align-items: center
-		justify-content: center
+
+		&.space-between
+			justify-content: space-between
+
+		&.center
+			flex-direction: column
+			justify-content: center
 
 	&-logo
 		margin-bottom: 50px
-		
+
 		will-change: transform
 
 		+transition
@@ -29,15 +34,69 @@
 			width: 75px
 			user-select: none
 
-	&-block-wrapper
+	&-progressbar
+		overflow-x: auto
+		
+		width: 100%
+
+		display: inline-flex
+		align-items: center
+		justify-content: center
+
+		margin-bottom: 50px
+
+		&-item
+			display: flex
+			align-items: center
+
+			margin: 0 15px
+
+			&.active &__number
+				color: $mainColor
+				background-color: $lightMainColor
+
+			&.active &__title
+				color: $black
+
+			&__number
+				user-select: none
+				margin-right: 10px
+
+				border-radius: 50%
+				width: 30px
+				height: 30px
+
+				display: flex
+				justify-content: center
+				align-items: center
+
+				font-size: 15px
+				background-color: $borderGray
+				color: $gray
+
+			&__title
+				white-space: nowrap
+				font-size: 15px
+				user-select: none
+				color: $gray
+
+		&-line
+			width: 10%
+			height: 1px
+
+			background-color: $borderGray
+
+	&-form-wrapper
 		width: 50%
 
-	&-block
+		+openPopup
+
+	&-form
 		width: 100%
 		padding: 50px
 		background-color: $white
+
 		+borderRadiusBlock
-		+openAnimation
 
 		&-title
 			margin-bottom: 50px
@@ -92,3 +151,186 @@
 				font-size: 18px
 				color: $gray
 				border-bottom: 1px solid $gray
+
+	&-product-wrapper
+		width: 45%
+
+	&-product-subscribe-block
+		width: 100%
+		background-color: $white
+		overflow: hidden
+
+		+borderRadiusBlock
+		+openPopup
+
+		&.prolongation
+			width: 100%
+
+		&-text
+			padding: 35px
+
+			&__subtitle
+				font-size: 24px
+				margin-bottom: 10px
+
+			&__title
+				max-width: 90%
+				font-size: 42px
+
+			&-list
+				margin-top: 25px
+
+				&__item
+					display: flex
+					align-items: center
+
+					color: $mainColor
+					font-size: 21px
+					margin-bottom: 5px
+
+					&:last-child
+						margin-bottom: 0
+
+					& svg
+						margin-right: 7px
+
+				&-hobjob-good
+					display: flex
+					align-items: center
+
+					& svg
+						margin-right: 7px
+
+					&-text
+						display: flex
+						align-items: center
+
+						&__logo
+							user-select: none
+							pointer-events: none
+
+							width: 150px
+
+						&__text
+							margin-left: 7px
+
+							display: flex
+							align-items: center
+
+							color: $mainColor
+							font-size: 21px
+
+		&-image
+			padding-bottom: 35px
+
+			&__image
+				user-select: none
+				pointer-events: none
+
+				width: 100%
+
+	&-product-buy-block
+		position: relative
+		width: 100%
+		background-color: $white
+
+		+borderRadiusBlock
+		+openPopup
+
+		&-loader
+			padding: 50px
+
+		&-text
+			padding: 35px
+
+			+openPopup
+
+			&__subprice
+				font-size: 24px
+				margin-bottom: 10px
+
+				& > span
+					font-size: 21px
+					color: $gray
+
+			&-price
+				display: flex
+				align-items: flex-end
+
+				&__title
+					font-size: 54px
+
+					+SfRegular
+
+					& > span
+						font-size: 32px
+						text-decoration: line-through
+						margin-left: 5px
+						color: $gray
+
+				&__sale
+					display: flex
+					justify-content: center
+					align-items: center
+
+					position: absolute
+					right: 20px
+					top: 20px
+
+					width: 70px
+					height: 70px
+
+					font-size: 21px
+					color: $white
+					background-color: $mainColor
+					border-radius: 50%
+
+			&-list
+				margin-top: 15px
+
+				&__item
+					display: flex
+					align-items: center
+
+					color: $mainColor
+					font-size: 21px
+					margin-bottom: 5px
+
+					&:last-child
+						margin-bottom: 0
+
+					& svg
+						margin-right: 7px
+
+			&__btn
+				margin-top: 25px
+				width: 100%
+
+			&__image
+				margin-top: 35px
+
+				user-select: none
+				pointer-events: none
+
+				width: 100%
+
+				+borderRadiusBlock
+
+	&-payment-error
+		margin-top: 100px
+		+openAnimation
+
+		&-text
+			&-logo
+				margin-bottom: 75px
+				display: block
+
+				&__img
+					width: 75px
+					user-select: none
+
+			&__title
+				margin-bottom: 25px
+
+			&__description
+				margin-bottom: 100px

@@ -26,8 +26,10 @@ const initialState: MastersState = {
 			vk: "",
 			tiktok: " ",
 			telegram: "",
-		}
+		},
+		courses: [],
 	},
+	
 	isLoadedById: false,
 };
 

@@ -23,17 +23,17 @@ export const validateInfo = (values: validateInfoValues) => {
     if (!values.name) {
         errors.name = "The field cannot be empty";
     } else if (values.name.length > defaultMax) {
-        errors.name = `No more ${defaultMax} symbols`;
+        errors.name = `No more than ${defaultMax} characters`;
     } else if (values.name.length < defaultMin) {
-        errors.name = `Not less than ${defaultMin} symbols`;
+        errors.name = `At least ${defaultMin} characters`;
     }
 
     if (!values.surname) {
         errors.surname = "The field cannot be empty";
     } else if (values.surname.length > defaultMax) {
-        errors.surname = `No more ${defaultMax} symbols`;
+        errors.surname = `No more than ${defaultMax} characters`;
     } else if (values.surname.length < defaultMin) {
-        errors.surname = `Not less than ${defaultMin} symbols`;
+        errors.surname = `At least ${defaultMin} characters`;
     }
 
     if (!values.dateOfBirth) {
@@ -51,9 +51,9 @@ export const validateInfo = (values: validateInfoValues) => {
     if (!values.city) {
         errors.city = "The field cannot be empty";
     } else if (values.city.length > defaultMax) {
-        errors.city = `No more ${defaultMax} symbols`;
+        errors.city = `No more than ${defaultMax} characters`;
     } else if (values.city.length < defaultMin) {
-        errors.city = `Not less than ${defaultMin} symbols`;
+        errors.city = `At least ${defaultMin} characters`;
     }
 
     return errors;

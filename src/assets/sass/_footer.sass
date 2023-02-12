@@ -4,22 +4,21 @@
 	+openAnimation
 
 	&-wrapper
-		display: flex
-		justify-content: space-between
-
-		padding: 50px 0 15px 0
+		padding: 25px 0 15px 0
 
 		border-top: 1px solid $borderGray
 
 	&-block
 		display: flex
+		justify-content: space-between
+		align-items: center
 
 		&-logos
 			&-logo
-				&__image
+				&__img
 					display: block
 					user-select: none
-					width: 150px
+					width: 65px
 
 					will-change: transform
 
@@ -29,12 +28,8 @@
 						+transformScale
 
 		&-contact
-			margin-left: 75px
-
 			&-email-wrapper
 				display: flex
-
-				margin-bottom: 50px
 
 			&-email
 				margin-right: 15px
@@ -64,17 +59,66 @@
 				&__email
 					font-size: 22px
 
-	&-nav
-		&__link
-			display: block
-			margin-bottom: 15px
-			+transition
+			&-socials
+				display: flex
+				align-items: center
 
-			&:last-child
-				margin-right: 0
+				margin-bottom: 25px
 
-			&.active
-				color: $mainColor
+				&__link
+					margin-right: 15px
 
-			&:hover
-				color: $mainColor
+					will-change: transform
+
+					+transition
+
+					& > svg
+						width: 50px
+
+					&:active
+						+transformScale
+
+					&:last-child
+						margin-right: 0
+
+		&-nav
+			&__link
+				display: block
+				margin-bottom: 15px
+				+transition
+
+				&:last-child
+					margin-right: 0
+
+				&.active
+					color: $mainColor
+
+				&:hover
+					color: $mainColor
+
+		&-subinfo
+			margin-top: 25px
+
+			padding-top: 15px
+			border-top: 1px solid $borderGray
+
+			&-block
+				&__link
+					margin-left: 25px
+					font-size: 15px
+					color: $gray
+
+					+transition
+
+					&.active
+						color: $black
+
+					&:hover
+						color: $black
+
+					&:first-child
+						margin-left: 0
+
+				&__span
+					color: $gray
+					font-size: 15px

@@ -1,4 +1,4 @@
-### HobJob (frontend) - Платформа для прохождения курсов по подписке (eng)
+### HobJob (frontend) - Платформа для прохождения курсов по подписке
 
 ## Стек технологий
 
@@ -19,19 +19,13 @@ git clone https://github.com/hobjob/hobjob-frontend-eng.git
 Переход в рабочий каталог.
 
 ```
-cd hobjob-frontend
+cd hobjob-frontend-eng
 ```
 
 Установка зависимостей
 
 ```
 npm install
-```
-
-Конфигурация
-
-```
-Создайте файл .env и заполните его с примера .env.example
 ```
 
 Запуск сборки

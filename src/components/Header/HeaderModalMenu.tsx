@@ -1,8 +1,6 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
-import {Instagram, TikTok, Telegram, Youtube, ReadDzen, ReadVk} from "../";
-
 interface HeaderModalMenuProps {
     HeaderModalMenuRef: React.RefObject<HTMLDivElement>;
     modalMenuAnimationState: boolean;
@@ -144,44 +142,6 @@ const HeaderModalMenu: React.FC<HeaderModalMenuProps> = ({
                         )}
                     </div>
                 </nav>
-
-                <div className="header-modal-menu-socials">
-					<div className="header-modal-menu-socials-read">
-						<ReadDzen />
-
-						<ReadVk />
-					</div>
-
-                    <div className="header-modal-menu-socials-links-wrapper">
-                        <a
-                            href={process.env.REACT_APP_socialsS_INST}
-                            className="header-modal-menu-socials__link"
-                        >
-                            <Instagram />
-                        </a>
-
-                        <a
-                            href={process.env.REACT_APP_socialsS_YOUTUBE}
-                            className="header-modal-menu-socials__link"
-                        >
-                            <Youtube />
-                        </a>
-
-                        <a
-                            href={process.env.REACT_APP_socialsS_TIKTOK}
-                            className="header-modal-menu-socials__link"
-                        >
-                            <TikTok />
-                        </a>
-
-                        <a
-                            href={process.env.REACT_APP_socialsS_TELEGRAM}
-                            className="header-modal-menu-socials__link"
-                        >
-                            <Telegram />
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     );

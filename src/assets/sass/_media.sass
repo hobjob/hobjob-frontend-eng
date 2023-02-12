@@ -93,7 +93,41 @@
 			&-items-wrapper
 				width: 100%
 
+	// training
+	.training
+		&-subscribe-disabled-wrapper
+			width: 100%
+
 @media screen and ( max-width: 1250px )
+	// course-page
+	.course-page
+		&-price
+			&-blocks
+				&-subscribe
+					&-text
+						&__price
+							font-size: 42px
+
+						&-list
+							&__item
+								font-size: 15px
+
+							&-hobjob-good
+								&-text
+
+									&__text
+										font-size: 15px
+
+				&-buy
+					&-text
+						&-price
+							&__title
+								font-size: 42px
+
+						&-list
+							&__item
+								font-size: 15px
+
 	// cabinet-subscribe-disable
 	.cabinet-subscribe-disable
 		&-wrapper
@@ -165,50 +199,6 @@
 		&-block-wrapper
 			width: 75%
 
-	// payment
-	.payment
-		padding: 50px 0
-
-		&-wrapper
-			flex-direction: column
-
-		&-login-wrapper
-			width: 75%
-			order: 2
-
-		&-form-wrapper
-			width: 100%
-
-		&-form
-			width: 100%
-
-		&-progressbar
-			display: none
-
-		&-subscribe-block-prolongation
-			width: 100%
-			flex-direction: column
-
-			&-text
-				width: 100%
-				margin-right: 0px
-
-			&-block
-				width: 100%
-
-		&-subscribe-checkbox-block-wrapper
-			width: 100%
-
-			&.prolongation
-				margin-top: 25px
-
-		&-subscribe-block-wrapper
-			width: 75%
-			margin-bottom: 25px
-
-		&-subscribe-block
-			width: 100%
-
 	// course-page
 	.course-page
 		&-main
@@ -232,6 +222,62 @@
 				margin-top: 25px
 
 				width: 100%
+
+	// hobjob-good
+	.hobjob-good
+		&-wrapper
+			flex-direction: column
+
+		&-text
+			width: 100%
+			margin-bottom: 50px
+
+			&__logo
+				width: 200px
+
+			&__btn
+				width: 100%
+
+		&__image
+			width: 60%
+
+@media screen and ( max-width: 1150px )
+	// course-page
+	.course-page
+		&-price
+			&-subscribe
+				&-rates
+					&-text
+						&-left
+							width: 48%
+
+					&-blocks
+						&-block
+							padding: 25px
+
+							&-top-text
+								margin-bottom: 25px
+
+								&__title
+									font-size: 24px
+
+							&-middle-text
+								margin-bottom: 25px
+
+								&__price
+									font-size: 48px
+
+	// reglog
+	.reglog
+		&-wrapper
+			flex-direction: column
+
+		&-form-wrapper
+			width: 100%
+			margin-bottom: 50px
+
+		&-product-wrapper
+			width: 100%
 
 @media screen and ( max-width: 1100px )
 	// main
@@ -329,8 +375,8 @@
 			&-text
 				width: 100%
 
-			&-form
-				margin-top: 75px
+			&-form, &-subscribe
+				margin-top: 50px
 				width: 100%
 
 	// referrals
@@ -350,6 +396,99 @@
 
 			&-contact
 				margin: 0
+
+@media screen and ( max-width: 1050px )
+	// course-page
+	.course-page
+		&-price
+			&-blocks
+				flex-direction: column
+
+				&-subscribe
+					width: 100%
+					flex-direction: row
+
+					padding: 35px
+
+					&-text
+						padding: 0
+						width: 50%
+
+						&-list
+							&-hobjob-good
+								margin-top: 10px
+								align-items: flex-start
+
+								& > svg
+									margin-top: 5px
+
+								&-text
+									flex-direction: column
+									align-items: flex-start
+
+									&__logo
+										width: 115px
+
+									&__text
+										margin-top: 5px
+										margin-left: 0
+
+					&-image
+						display: none
+
+					&-image-media
+						display: block
+
+				&-buy
+					margin-top: 25px
+
+					width: 100%
+
+					display: flex
+					flex-direction: row
+					justify-content: space-between
+
+					padding: 35px
+
+					&-text
+						width: 50%
+
+					&-image
+						display: none
+
+					&-image-media
+						display: block
+
+@media screen and ( max-width: 1000px )
+	// course-page
+	.course-page
+		&-price
+			&-subscribe
+				&-rates
+					&-text
+						flex-direction: column
+						align-items: center
+
+						margin-bottom: 50px
+
+						&-left
+							width: 100%
+							margin-bottom: 50px
+
+					&-blocks
+						flex-direction: column
+
+						&-block
+							width: 100%
+							transform: scale(1)
+
+							margin-bottom: 25px
+
+							&:last-child
+								margin-bottom: 0
+
+							&:nth-child(2n)
+								transform: scale(1)
 
 @media screen and ( max-width: 900px )
 	// header
@@ -483,39 +622,47 @@
 
 	// training
 	.training
-		&-block
-			padding-bottom: 25px
+		&-section
+			&-block
+				padding-bottom: 25px
 
-			&-left
-				flex-direction: column
+				&-left
+					flex-direction: column
 
-			&-cover
-				width: 100%
-				height: 300px
+				&-cover
+					width: 100%
+					height: 300px
 
-				&-placeholder
-					background-color: $blackTransparency
+					&-placeholder
+						background-color: $blackTransparency
 
-				&-icon
-					opacity: 1
-					transform: translate(-50%, -50%) scale3d(1, 1, 1)
+					&-icon
+						opacity: 1
+						transform: translate(-50%, -50%) scale3d(1, 1, 1)
 
+				&-text
+					width: 100%
+					margin: 25px 0 0 0
+
+					&__title
+						font-size: 28px
+
+					&-progress, &-auth
+						margin-top: 25px
+
+				&__hidden
+					width: 80px
+					top: 30px
+					left: 30px
+					color: $white
+					background-color: $red
+
+		&-subscribe-disabled
 			&-text
-				width: 100%
-				margin: 25px 0 0 0
-
-				&__title
-					font-size: 28px
-
-				&-bottom
-					margin-top: 50px
-
-			&__hidden
-				width: 80px
-				top: 30px
-				left: 30px
-				color: $white
-				background-color: $red
+				&-types
+					&-item
+						transform: scale(1)
+						margin-right: 25px
 
 	// passing
 	.passing
@@ -572,24 +719,6 @@
 		&-wrapper
 			width: 100%
 
-	// payment
-	.payment
-		padding: 25px 0
-
-		&-login-wrapper
-			width: 100%
-
-		&-subscribe-checkbox
-			margin: 0 10px
-			width: 40px
-			height: 25px
-
-		&-subscribe-block-wrapper
-			width: 100%
-
-		&-progressbar
-			&-line
-
 	// footer
 	.footer
 		&-block
@@ -631,6 +760,40 @@
 		&-user
 			&-nav
 				display: none
+
+	// course-page
+	.course-page
+		&-price
+			&-blocks
+				padding: 15px 10px
+
+				&-subscribe
+					padding: 0
+					flex-direction: column
+
+					&-text
+						padding: 20px 25px
+						width: 100%
+
+					&-image
+						display: block
+						padding-bottom: 20px
+
+					&-image-media
+						display: none
+
+				&-buy
+					padding: 20px 25px
+					flex-direction: column
+
+					&-text
+						width: 100%
+
+					&-image
+						display: block
+
+					&-image-media
+						display: none
 
 	// master-card
 	.master-card
@@ -677,12 +840,30 @@
 				&:last-child
 					margin-bottom: 0
 
-	// payment
-	.payment
-		&-form
-			&__description
-				width: 100%
-				font-size: 18px
+@media screen and ( max-width: 750px )
+	// course-page
+	.course-page
+		&-feedbacks
+			&-slider
+				margin-top: 0
+
+				&-carousel
+					width: 100%
+
+				&-arrow-wrapper
+					margin-top: 25px
+
+					display: flex
+					align-items: center
+					justify-content: center
+
+				&-arrow
+					position: static
+
+					margin: 0 10px
+
+					width: 30px
+					height: 30px
 
 @media screen and ( max-width: 700px )
 	// interface
@@ -749,12 +930,8 @@
 			&-item
 				padding: 20px
 
-				&-top
-					&__number
-						font-size: 24px
-
-					&__title
-						font-size: 32px
+				&__title
+					font-size: 32px
 
 		&-comparison-courses
 			&-block
@@ -790,18 +967,6 @@
 		&-block-wrapper
 			width: 100%
 
-	// payment
-	.payment
-		&-subscribe-block-prolongation
-			padding: 15px
-
-			&-text
-				&__title
-					font-size: 28px
-
-				&__description
-					font-size: 21px
-
 	// magazine-post-page
 	.magazine-post-page
 		&-cover
@@ -817,6 +982,40 @@
 					&-socials
 						display: flex
 						flex-direction: column
+
+	// training
+	.training
+		&-subscribe-disabled
+			&-text
+				padding: 20px
+
+				&__title
+					font-size: 28px
+
+				&-types
+					&-item
+						margin-right: 15px
+
+						& > svg
+							width: 200px
+
+				&-list
+					&__item
+						font-size: 16px
+
+					&-hobjob-good
+						align-items: flex-start
+						margin-top: 10px
+
+						& > svg
+							margin-top: 7px
+
+						&-text
+							flex-direction: column
+							align-items: flex-start
+
+							&__text
+								font-size: 16px
 
 	// footer
 	.footer
@@ -851,6 +1050,11 @@
 					align-items: center
 
 @media screen and ( max-width: 600px )
+	// interface
+	.category
+		font-size: 14px
+		padding: 6px 8px
+
 	// main
 	.main
 		&-text
@@ -866,9 +1070,37 @@
 
 	// reglog
 	.reglog
-		&-block
+		&-form
 			&__title
 				font-size: 24px
+
+		&-product
+			&-subscribe
+				&-block
+					&-text
+						padding: 20px
+
+						&__title
+							max-width: 100%
+							font-size: 28px
+
+						&-list
+							&__item
+								font-size: 16px
+
+							&-hobjob-good
+								align-items: flex-start
+								margin-top: 10px
+
+								& > svg
+									margin-top: 7px
+
+								&-text
+									flex-direction: column
+									align-items: flex-start
+
+									&__text
+										font-size: 16px
 
 	// magazine-post-page
 	.magazine-post-page
@@ -887,11 +1119,6 @@
 				&__title
 					font-size: 24px
 
-	// payment
-	.payment
-		&-progressbar
-			width: 100%
-
 	// cabinet-subscribe-disable
 	.cabinet-subscribe-disable
 		&-text
@@ -907,6 +1134,16 @@
 	// course-page
 	.course-page
 		&-main
+			&-text
+				&-subinfo
+					&-hobjob-production
+						width: 150px
+						margin-right: 5px
+						margin-bottom: 10px
+
+					&__category
+						margin-bottom: 10px
+
 			&-image
 				height: 300px
 
@@ -994,6 +1231,9 @@
 			bottom: 10px
 			transform: translateX(-50%)
 
+			&:active
+				transform: scale(0.95) translateX(-53%)
+
 		&__title
 			font-size: 32px
 
@@ -1073,12 +1313,9 @@
 			margin: 35px 0
 
 			&-item
-				&-top
-					&__number
-						font-size: 21px
-
-					&__title
-						font-size: 24px
+				&__title
+					font-size: 28px
+					margin-bottom: 15px
 
 				&__description
 					font-size: 18px
@@ -1097,6 +1334,35 @@
 
 						&__description
 							font-size: 18px
+
+		&-feedbacks
+			margin: 35px 0
+
+		&-price
+			&-subscribe
+				&-rates
+					padding: 20px 15px
+
+					&-text
+						margin-bottom: 25px
+
+						&-left
+							margin-bottom: 25px
+							&__title
+								font-size: 28px
+
+						&-timer
+							&-block
+								width: 60px
+								height: 60px
+
+								border-radius: 15px
+
+								&__title
+									font-size: 21px
+
+								&__subtitle
+									font-size: 15px
 
 		&-comparison-courses
 			margin: 35px 0
@@ -1161,10 +1427,47 @@
 				font-size: 36px
 				margin-bottom: 25px
 
+	// hobjob-good
+	.hobjob-good
+		margin: 35px 0
+
+		&__image
+			width: 100%
+
 	// reglog
 	.reglog
-		&-block
+		&-progressbar
+			margin-bottom: 25px
+
+		&-form-wrapper
+			margin-bottom: 25px
+
+		&-form
 			padding: 35px
+
+		&-product-buy
+			&-block
+				&-text
+					padding: 20px 15px
+
+					&-price
+						&__title
+							font-size: 36px
+
+						&__sale
+							width: 45px
+							height: 45px
+							font-size: 15px
+
+							right: 10px
+							top: 10px
+
+					&-list
+						&__item
+							font-size: 15px
+
+					&__image
+						margin-top: 20px
 
 	// shop
 	.shop
@@ -1305,21 +1608,74 @@
 				&__subtitle
 					font-size: 18px
 
+			&-subscribe-item
+				flex-direction: column
+				align-items: flex-start
+
+				padding-bottom: 25px
+				margin-bottom: 25px
+
+				&__title
+					margin-bottom: 15px
+
+				&__description
+					display: flex
+					justify-content: center
+
+					width: 100%
+					margin-bottom: 15px
+
+				&__btn
+					width: 100%
+
 	// training
 	.training
 		margin: 25px 0
 
-		&__title
-			margin-bottom: 25px
+		&-section-wrapper
+			margin-bottom: 50px
 
-		&-block
-			&-cover
-				height: 200px
+			&:last-child
+				margin-bottom: 25px
 
+		&-section
+			&__title
+				margin-bottom: 25px
+
+			&-block
+				&-cover
+					height: 200px
+
+				&-text
+					&__title
+						margin-bottom: 10px
+						font-size: 24px
+
+					&-progress
+						width: 100%
+
+		&-subscribe-disabled-wrapper
+			padding: 15px
+
+		&-subscribe-disabled
 			&-text
+				padding: 15px
+
 				&__title
-					margin-bottom: 10px
-					font-size: 24px
+					margin-bottom: 25px
+
+				&-types
+					flex-direction: column
+
+					&-item
+						margin-bottom: 10px
+						margin-right: 0
+
+						&:last-child
+							margin-bottom: 0
+
+						& > svg
+							width: 80%
 
     // passing
 	.passing
@@ -1371,62 +1727,6 @@
 					&__link
 						font-size: 18px
 
-	// payment
-	.payment
-		&-subscribe-checkbox-block
-			width: 100%
-			padding: 10px
-			margin-bottom: 5px
-
-			&-text
-				&__title
-					font-size: 14px
-
-				&__subtitle
-					font-size: 14px
-
-		&-subscribe-block-wrapper
-			margin-bottom: 15px
-
-		&-subscribe-block
-			&-text
-				padding: 15px
-
-				&__title
-					font-size: 32px
-
-				&-list
-					margin-top: 15px
-
-					&__item
-						font-size: 14px
-
-						& svg
-							margin-right: 3px
-							width: 10px
-
-					&-hobjob-good
-						align-items: flex-start
-
-						& svg
-							margin-top: 3px
-							margin-right: 3px
-							width: 10px
-
-						&-text
-							flex-direction: column
-							align-items: flex-start
-
-							&__logo
-								width: 100px
-
-							&__text
-								font-size: 14px
-								margin-left: 0
-
-			&-image
-				padding-bottom: 15px
-
 	// master-card
 	.master-card
 		margin: 25px 0
@@ -1439,7 +1739,7 @@
 @media screen and ( max-width: 450px )
 	// reglog
 	.reglog
-		&-block
+		&-form
 			padding: 25px
 
 			&__policy
@@ -1451,6 +1751,35 @@
 		&-text
 			&__title
 				font-size: 32px
+
+	// course-page
+	.course-page
+		&-price
+			&-blocks
+				&-subscribe
+					&-text
+						&__price
+							font-size: 32px
+
+						&-list
+							margin-top: 15px
+
+				&-buy
+					&-text
+						&-price
+							&__title
+								font-size: 32px
+
+							&__sale
+								width: 45px
+								height: 45px
+								font-size: 15px
+
+								right: 10px
+								top: 10px
+
+					&-image
+						padding-top: 25px
 
 	// hobjob-good
 	.hobjob-good

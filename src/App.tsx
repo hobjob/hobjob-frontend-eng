@@ -1,6 +1,7 @@
 import React from "react";
 import {Route, Routes, Navigate, useLocation} from "react-router-dom";
 import {compose} from "redux";
+import "moment/locale/ru";
 
 import {Header, Footer} from "./components/";
 
@@ -13,13 +14,12 @@ import {
     PassingCourse,
     Cabinet,
     Register,
-    PaymentSubscribe,
+    PaymentCourse,
     PaymentStatus,
     PaymentError,
     Policy,
     PublicOffer,
-    Regulations,
-    EngineeringWorks,
+    CabinetSubscribeDisable,
 } from "./pages/";
 
 declare global {
@@ -50,89 +50,83 @@ const App: React.FC = () => {
 
     return (
         <>
-            {false ? (
-                <EngineeringWorks />
-            ) : (
-                <div className="wrapper">
-                    {pathname.indexOf("/payment") !== -1 ||
-                    pathname.indexOf("/login") !== -1 ||
-                    pathname.indexOf("/register") !== -1 ||
-                    pathname === "/go/password-recovery" ||
-                    pathname.indexOf("/go/password-recovery") !== -1 ? null : (
-                        <Header />
-                    )}
+            <div className="wrapper">
+                {pathname.indexOf("/payment") !== -1 ||
+                pathname.indexOf("/login") !== -1 ||
+                pathname.indexOf("/register") !== -1 ||
+                pathname === "/go/password-recovery" ||
+                pathname.indexOf("/go/password-recovery") !== -1 ? null : (
+                    <Header />
+                )}
 
-                    <React.Suspense fallback={<></>}>
-                        <Routes>
-                            <Route path="/" element={<Navigate to="/go/login" />} />
+                <React.Suspense fallback={<></>}>
+                    <Routes>
+                        <Route path="/course/:url" element={<CoursePage />} />
 
-                            <Route
-                                path="/course/:url"
-                                element={<CoursePage />}
-                            />
+                        <Route
+                            path="/payment/course/:number"
+                            element={<PaymentCourse />}
+                        />
 
-                            <Route
-                                path="/payment/subscribe/:number"
-                                element={<PaymentSubscribe />}
-                            />
+                        <Route
+                            path="/payment/status/:number"
+                            element={<PaymentStatus />}
+                        />
 
-                            <Route
-                                path="/payment/status/:number"
-                                element={<PaymentStatus />}
-                            />
+                        <Route
+                            path="/payment/error"
+                            element={<PaymentError />}
+                        />
 
-                            <Route
-                                path="/payment/error"
-                                element={<PaymentError />}
-                            />
+                        <Route path="/policy" element={<Policy />} />
 
-                            <Route path="/policy" element={<Policy />} />
+                        <Route path="/public-offer" element={<PublicOffer />} />
 
-                            <Route
-                                path="/public-offer"
-                                element={<PublicOffer />}
-                            />
-                            <Route
-                                path="/regulations"
-                                element={<Regulations />}
-                            />
+                        <Route path="/go/login" element={<Login />} />
 
-                            <Route path="/go/login" element={<Login />} />
+                        <Route path="/go/register" element={<Register />} />
 
-                            <Route path="/go/register" element={<Register />} />
+                        <Route
+                            path="/go/password-recovery"
+                            element={<PasswordRecoveryEmail />}
+                        />
 
-                            <Route
-                                path="/go/password-recovery"
-                                element={<PasswordRecoveryEmail />}
-                            />
+                        <Route
+                            path="/go/password-recovery/:hash"
+                            element={<PasswordRecoveryNewPassword />}
+                        />
 
-                            <Route
-                                path="/go/password-recovery/:hash"
-                                element={<PasswordRecoveryNewPassword />}
-                            />
+                        <Route path="/go/training" element={<Training />} />
 
-                            <Route path="/go/training" element={<Training />} />
+                        <Route
+                            path="/go/passing/:id/:num"
+                            element={<PassingCourse />}
+                        />
 
-                            <Route
-                                path="/go/passing/:id/:num"
-                                element={<PassingCourse />}
-                            />
+                        <Route path="/go/cabinet" element={<Cabinet />} />
 
-                            <Route path="/go/cabinet" element={<Cabinet />} />
+                        <Route
+                            path="/go/cabinet/subscribe/disable"
+                            element={<CabinetSubscribeDisable />}
+                        />
 
-                            <Route path="*" element={<Navigate to="/" />} />
-                        </Routes>
-                    </React.Suspense>
+                        <Route
+                            path="*"
+                            element={
+                                <Navigate to="/course/how-to-make-short-videos-for-social-media-networks-Aryan-Nair" />
+                            }
+                        />
+                    </Routes>
+                </React.Suspense>
 
-                    {pathname.indexOf("/payment") !== -1 ||
-                    pathname.indexOf("/login") !== -1 ||
-                    pathname.indexOf("/register") !== -1 ||
-                    pathname === "/go/password-recovery" ||
-                    pathname.indexOf("/go/password-recovery") !== -1 ? null : (
-                        <Footer />
-                    )}
-                </div>
-            )}
+                {pathname.indexOf("/payment") !== -1 ||
+                pathname.indexOf("/login") !== -1 ||
+                pathname.indexOf("/register") !== -1 ||
+                pathname === "/go/password-recovery" ||
+                pathname.indexOf("/go/password-recovery") !== -1 ? null : (
+                    <Footer />
+                )}
+            </div>
         </>
     );
 };

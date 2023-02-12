@@ -3,20 +3,13 @@ import {Link} from "react-router-dom";
 
 import {CoursePageLessonsVideo, CoursePageLessonsItem} from "../../";
 
-import {CourseGood} from "../../../models/ICourseGood";
+import {CourseGood} from "../../../models/Course/ICourseGood";
 
-interface CoursePageLessonsProps extends CourseGood {
-    isLogin: boolean;
-    onClickAddCourse: (Navigate: string) => void;
-}
-
-const CoursePageLessons: React.FC<CoursePageLessonsProps> = ({
+const CoursePageLessons: React.FC<CourseGood> = ({
     lessons,
     _id,
-    price,
     oldPrice,
-    isLogin,
-    onClickAddCourse,
+    price,
 }) => {
     const [videoPlaecholder, setVideoPlaecholder] =
         React.useState<boolean>(false);
@@ -56,7 +49,7 @@ const CoursePageLessons: React.FC<CoursePageLessonsProps> = ({
                                     course
                                 </p>
                                 <Link
-                                    to="/go/register"
+                                    to={`/go/register?course=${_id}`}
                                     className="course-page-lessons-video-plaecholder__link"
                                 >
                                     Buy for <span>{oldPrice}₹</span> {price}₹
@@ -86,9 +79,7 @@ const CoursePageLessons: React.FC<CoursePageLessonsProps> = ({
                                     closeVideoPlaecholder={
                                         closeVideoPlaecholder
                                     }
-                                    onClickAddCourse={onClickAddCourse}
                                     courseId={_id}
-                                    isLogin={isLogin}
                                     {...lesson}
                                 />
                             ))}

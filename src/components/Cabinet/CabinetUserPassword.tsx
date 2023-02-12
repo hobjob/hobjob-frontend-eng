@@ -20,7 +20,7 @@ let CabinetUserPassword: React.FC<
                     component={RenderInput}
                     type="password"
                     name="currentPassword"
-                    label="Current Password"
+                    label="Текущий пароль"
                 />
             </div>
             <div className="cabinet-block-form-input">
@@ -28,7 +28,7 @@ let CabinetUserPassword: React.FC<
                     component={RenderInput}
                     type="password"
                     name="newPassword"
-                    label="New Password"
+                    label="Новый пароль"
                 />
             </div>
             <div className="cabinet-block-form-input">
@@ -36,7 +36,7 @@ let CabinetUserPassword: React.FC<
                     component={RenderInput}
                     type="password"
                     name="newPasswordRepeat"
-                    label="Repeat new password"
+                    label="Повторите новый пароль"
                 />
             </div>
             {isSendUpdateUserPassword ? (
@@ -53,7 +53,7 @@ let CabinetUserPassword: React.FC<
                     } cabinet-block-form-btn`}
                     disabled={invalid || submitting || pristine}
                 >
-                    Save
+                    Сохранить
                 </button>
             )}
         </form>

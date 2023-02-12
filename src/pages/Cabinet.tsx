@@ -52,7 +52,7 @@ const Cabinet: React.FC = () => {
                 isLoadedUserInfo ? (
                     <>
                         <Helmet>
-                            <title>My profile</title>
+                            <title>Мой профиль</title>
                         </Helmet>
                         <section className="cabinet">
                             <div className="container">
@@ -63,7 +63,7 @@ const Cabinet: React.FC = () => {
                                         <div className="cabinet-block">
                                             <div className="cabinet-block-text">
                                                 <h3 className="cabinet-block-text__title">
-                                                    About
+                                                    О себе
                                                 </h3>
                                             </div>
 
@@ -77,7 +77,7 @@ const Cabinet: React.FC = () => {
                                         <div className="cabinet-block">
                                             <div className="cabinet-block-text">
                                                 <h3 className="cabinet-block-text__title">
-                                                    Change password
+                                                    Изменение пароля
                                                 </h3>
                                             </div>
 

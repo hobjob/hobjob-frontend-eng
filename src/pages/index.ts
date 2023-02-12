@@ -1,6 +1,9 @@
 // Login
 export { default as Login } from "./Login"
 
+// Register
+export { default as Register } from "./Register"
+
 // PasswordRecovery
 export { default as PasswordRecoveryEmail } from "./PasswordRecoveryEmail"
 export { default as PasswordRecoveryNewPassword } from "./PasswordRecoveryNewPassword"
@@ -16,12 +19,10 @@ export { default as PassingCourse } from "./PassingCourse"
 
 // Cabinet
 export { default as Cabinet } from "./Cabinet"
-
-// PaymentProSubscribe
-export { default as Register } from "./Register"
-export { default as PaymentSubscribe } from "./PaymentSubscribe"
+export { default as CabinetSubscribeDisable } from "./CabinetSubscribeDisable"
 
 // Payment
+export { default as PaymentCourse } from "./PaymentCourse"
 export { default as PaymentStatus } from "./PaymentStatus"
 export { default as PaymentError } from "./PaymentError"
 
@@ -30,9 +31,3 @@ export { default as Policy } from "./Policy"
 
 // PublicOffer
 export { default as PublicOffer } from "./PublicOffer"
-
-// Regulations
-export { default as Regulations } from "./Regulations"
-
-// EngineeringWorks
-export { default as EngineeringWorks } from "./EngineeringWorks"

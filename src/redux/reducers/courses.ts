@@ -7,7 +7,7 @@ import {
 	CoursesActionTypes,
 } from "../types/courses/ICourses";
 
-import { CourseGood } from "../../models/ICourseGood";
+import { CourseGood } from "../../models/Course/ICourseGood";
 
 // const parseQuery = queryString.parse(window.location.search.replace("?", "?"), {
 //     arrayFormat: "comma",
@@ -18,16 +18,41 @@ const initialState: CoursesState = {
 	isLoadedAllCourses: false,
 	isFetchAllCourses: false,
 
-	items: [],
+	courses: [],
 
 	isLoadedCourseByUrl: false,
-	itemByUrl: {
+	courseByUrl: {
 		_id: "",
 		url: "",
 		title: "",
+		description: "",
 		price: 0,
 		oldPrice: 0,
+		image: {
+			size_512: "",
+			size_768: "",
+			size_1024: "",
+			size_1536: "",
+			size_2048: "",
+		},
+		masterId: "",
+		category: "",
+		path: "",
+		lessons: [],
+		materials: [],
+		skills: [],
+		useSkills: [],
+		tools: [],
+	},
+
+	isLoadedCourseById: false,
+	courseById: {
+		_id: "",
+		url: "",
+		title: "",
 		description: "",
+		price: 0,
+		oldPrice: 0,
 		image: {
 			size_512: "",
 			size_768: "",
@@ -49,7 +74,7 @@ const initialState: CoursesState = {
 	page: 1,
 
 	isLoadedSectionCourses: false,
-	itemsSection: {},
+	coursesSection: [],
 
 	filters: {
 		isParse: false,
@@ -67,8 +92,8 @@ const courses = (
 	if (action.type === CoursesActionTypes.SET_COURSES) {
 		return {
 			...state,
-			items: action.payload.data,
-			totalCount: action.payload.headers["x-total-count"],
+			courses: action.payload.courses,
+			totalCount: action.payload.totalCount,
 			isLoadedAllCoursesFirst: true,
 			page: 1,
 		};
@@ -77,33 +102,16 @@ const courses = (
 	if (action.type === CoursesActionTypes.SET_ADD_PAGINATION_COURSES) {
 		return {
 			...state,
-			items: [...state.items, ...action.payload.data],
+			courses: [...state.courses, ...action.payload],
 			isLoadedAllCourses: true,
 			page: state.page + 1,
 		};
 	}
 
 	if (action.type === CoursesActionTypes.SET_COURSES_SECTION) {
-		const newObj: { [key: string]: CourseGood } = {};
-
-		action.payload.items.map((item) => {
-			if (action.payload.userInfo) {
-				if (
-					!action.payload.userInfo.courses[item._id] &&
-					item.url !== action.payload.url
-				) {
-					newObj[item._id] = item;
-				}
-			} else {
-				if (item.url !== action.payload.url) {
-					newObj[item._id] = item;
-				}
-			}
-		});
-
 		return {
 			...state,
-			itemsSection: newObj,
+			coursesSection: action.payload,
 			isLoadedSectionCourses: true,
 		};
 	}
@@ -111,8 +119,16 @@ const courses = (
 	if (action.type === CoursesActionTypes.SET_COURSE_BY_URL) {
 		return {
 			...state,
-			itemByUrl: action.payload,
+			courseByUrl: action.payload,
 			isLoadedCourseByUrl: true,
+		};
+	}
+
+	if (action.type === CoursesActionTypes.SET_COURSE_BY_ID) {
+		return {
+			...state,
+			courseById: action.payload,
+			isLoadedCourseById: true,
 		};
 	}
 
@@ -203,6 +219,13 @@ const courses = (
 		return {
 			...state,
 			isLoadedCourseByUrl: action.payload,
+		};
+	}
+
+	if (action.type === CoursesActionTypes.SET_LOADED_COURSE_BY_ID) {
+		return {
+			...state,
+			isLoadedCourseById: action.payload,
 		};
 	}
 

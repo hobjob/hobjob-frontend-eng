@@ -56,7 +56,7 @@ let CabinetUserInfoForm: React.FC<
                     component={RenderInput}
                     type="name"
                     name="name"
-                    label="Name"
+                    label="Имя"
                 />
             </div>
             <div className="cabinet-block-form-input">
@@ -64,7 +64,7 @@ let CabinetUserInfoForm: React.FC<
                     component={RenderInput}
                     type="name"
                     name="surname"
-                    label="Surname"
+                    label="Фамилия"
                 />
             </div>
             <div className="cabinet-block-form-input">
@@ -72,7 +72,7 @@ let CabinetUserInfoForm: React.FC<
                     component={RenderInput}
                     type="text"
                     name="dateOfBirth"
-                    label="Date of Birth"
+                    label="Дата рождения"
                     {...createTextMask({
                         pattern: "99.99.9999",
                         stripMask: false,
@@ -84,7 +84,12 @@ let CabinetUserInfoForm: React.FC<
                     component={RenderInput}
                     type="phone"
                     name="phone"
-                    label="Phone number"
+                    label="Номер телефона"
+                    {...createTextMask({
+                        pattern: "+7 999 999 99-99",
+                        guide: false,
+                        stripMask: false,
+                    })}
                 />
             </div>
             <div className="cabinet-block-form-input">
@@ -92,7 +97,7 @@ let CabinetUserInfoForm: React.FC<
                     component={RenderInput}
                     type="text"
                     name="city"
-                    label="City"
+                    label="Город"
                 />
             </div>
             {isSendUpdateUserInfo ? (
@@ -114,7 +119,7 @@ let CabinetUserInfoForm: React.FC<
                             : "disabled"
                     } cabinet-block-form-btn`}
                 >
-                    Save
+                    Сохранить
                 </button>
             )}
         </form>

@@ -11,7 +11,7 @@ import {fetchCategories} from "../../redux/actions/categories";
 
 import {HeaderModalMenu} from "../";
 
-import LogoAryan from "../../assets/images/logo-aryan.svg";
+import Logo from "../../assets/images/logo-aryan.svg";
 
 const Header: React.FC = () => {
     const dispatch = useDispatch();
@@ -108,16 +108,16 @@ const Header: React.FC = () => {
                 <div className="container">
                     <div className="header-wrapper">
                         <a
-                            href="https://www.instagram.com/arenavitch/"
-                            className="header-logo"
+                            href="https://www.instagram.com/arenavitch"
+                            className="header-logo__link"
                         >
                             <img
-                                src={LogoAryan}
+                                src={Logo}
                                 alt=""
-                                className="header-logo__image"
+                                className="header-logo__img"
                             />
-						</a>
-						
+                        </a>
+
                         <nav className="header-left-block">
                             {isLoadedUserInfo ? (
                                 <div className="header-user">
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
                                                 }`
                                             }
                                         >
-                                            My learning
+                                            Мое обучение
                                         </NavLink>
                                     </div>
 
@@ -168,14 +168,21 @@ const Header: React.FC = () => {
                                                 to="/go/cabinet"
                                                 className="header-user-menu__link"
                                             >
-                                                My profile
+                                                Мой профиль
+                                            </NavLink>
+
+                                            <NavLink
+                                                to="/go/referrals"
+                                                className="header-user-menu__link"
+                                            >
+                                                Пригласи друга
                                             </NavLink>
 
                                             <span
                                                 onClick={clickLogout}
                                                 className="header-user-menu__link"
                                             >
-                                                Logout
+                                                Выйти
                                             </span>
                                         </div>
                                     ) : null}

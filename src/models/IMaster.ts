@@ -1,5 +1,4 @@
-import { CourseGood } from "./ICourseGood";
-
+import { CourseGood } from "./Course/ICourseGood";
 import { Image } from "./IImage";
 
 export interface MasterSocials {
@@ -19,5 +18,5 @@ export interface Master {
 }
 
 export interface MasterById extends Master {
-
+	courses: CourseGood[];
 }

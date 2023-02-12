@@ -17,11 +17,11 @@ export const validateEmail = (values: validateEmailValues) => {
     } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
-        errors.email = "Invalid email";
+        errors.email = "Неверный email";
     } else if (values.email.length > defaultMax) {
-        errors.email = `No more ${defaultMax} symbols`;
+        errors.email = `No more than ${defaultMax} characters`;
     } else if (values.email.length < defaultMin) {
-        errors.email = `Not less than ${defaultMin} symbols`;
+        errors.email = `At least ${defaultMin} characters`;
     }
 
     return errors;

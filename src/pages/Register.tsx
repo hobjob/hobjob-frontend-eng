@@ -1,59 +1,71 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {Helmet} from "react-helmet";
-import {Navigate} from "react-router-dom";
+import {Navigate, useSearchParams} from "react-router-dom";
 
 import {sendRegister} from "../redux/actions/register";
+import {fetchCourseById} from "../redux/actions/courses";
 
-import {
-    PaymentProgressbar,
-    RegisterForm,
-} from "../components/";
+import {ReglogProgressbar, RegisterForm, ReglogBuyBlock} from "../components/";
 
 const Register: React.FC = () => {
     const dispatch = useDispatch();
 
-    const [isYearSubscribe, setIsYearSubscribe] = React.useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const courseId = searchParams.get("course");
 
     const onSubmit = ({email, name, password}: any) => {
-        return dispatch(
-            sendRegister(
-                {
-                    email,
-                    name,
-                    password,
-                    nextTypeSubscribe: isYearSubscribe
-                        ? "year-subscribe"
-                        : "month-subscribe",
-                },
-                localStorage.getItem("ref")
-                    ? JSON.parse(localStorage.getItem("ref") as string)
-                    : ""
-            )
-        );
+        // const paymentInfo =
+        //     !courseId
+        //         ? undefined
+        //         : courseId
+        //         ? `buy.${courseId}`
+        //         : `subscribe.${typeSubscribe}`;
+        // return dispatch(
+        //     sendRegister(
+        //         {
+        //             email,
+        //             name,
+        //             password,
+        //             paymentInfo,
+        //         },
+        //         localStorage.getItem("ref")
+        //             ? (localStorage.getItem("ref") as string)
+        //             : "",
+        //         paymentInfo && paymentInfo.split(".")[0]
+        //     )
+        // );
     };
 
-    const setYearSubscribe = () => {
-        setIsYearSubscribe(!isYearSubscribe);
-    };
+    React.useEffect(() => {
+        if (courseId) dispatch(fetchCourseById(courseId ? courseId : ""));
+    }, []);
 
     return (
         <>
             {!localStorage.getItem("accessToken") ? (
                 <>
                     <Helmet>
-                        <title>Register</title>
+                        <title>Registration</title>
                     </Helmet>
                     <section className="reglog">
                         <div className="container">
-                            <div className="reglog-wrapper">
-                                <PaymentProgressbar number={1} />
+                            <div
+                                className={`reglog-wrapper ${
+                                    courseId ? "space-between" : "center"
+                                } `}
+                            >
+                                <div className="reglog-form-wrapper">
+                                    <ReglogProgressbar number={1} />
 
-                                <div className="reglog-block-wrapper">
                                     <RegisterForm
                                         onSubmit={onSubmit}
                                         loginLink="/go/login"
                                     />
+                                </div>
+                                <div className="reglog-product-wrapper">
+                                    {courseId ? <ReglogBuyBlock /> : null}
                                 </div>
                             </div>
                         </div>

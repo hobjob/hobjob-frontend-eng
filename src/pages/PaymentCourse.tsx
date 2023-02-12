@@ -5,27 +5,30 @@ import {useParams} from "react-router-dom";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-import {fetchPaymentSubscribeById} from "../redux/actions/payment";
+import {fetchPaymentCourseById} from "../redux/actions/payment/paymentCourse";
+import {fetchCourseById} from "../redux/actions/courses";
 
-import {
-    PaymentProgressbar,
-    Loader,
-} from "../components/";
+import {ReglogProgressbar, ReglogBuyBlock, Loader} from "../components/";
 
 interface PaymentSubscribe {}
 
 const PaymentSubscribe: React.FC = () => {
     const dispatch = useDispatch();
-    const {number} = useParams();
+    const {number}: any = useParams();
 
-    const {payment, isLoaded} = useTypedSelector(({payment}) => payment);
+    const {payment, isLoaded} = useTypedSelector(
+        ({paymentCourse}) => paymentCourse
+    );
+    const {courseById} = useTypedSelector(({courses}) => courses);
 
     React.useEffect(() => {
-        dispatch(fetchPaymentSubscribeById(number ? number : ""));
+        dispatch(fetchPaymentCourseById(number ? number : ""));
     }, []);
 
     React.useEffect(() => {
         if (isLoaded) {
+            dispatch(fetchCourseById(payment.courseId));
+
             if (payment.confirmation) {
                 const checkout = new window.YooMoneyCheckoutWidget({
                     confirmation_token: payment.confirmation.confirmation_token,
@@ -42,7 +45,7 @@ const PaymentSubscribe: React.FC = () => {
                     },
                 });
 
-                checkout.render("payment-form");
+                checkout.render("reglog-form-payment");
             } else {
                 window.location.href = "/";
             }
@@ -54,30 +57,21 @@ const PaymentSubscribe: React.FC = () => {
             {isLoaded ? (
                 <>
                     <Helmet>
-                        <title>Оформление подписки</title>
+                        <title>Купить курс «{courseById.title}»</title>
                     </Helmet>
-                    <section className="payment">
+                    <section className="reglog">
                         <div className="container">
-                            <div className="payment-wrapper">
-                                <div className="payment-form-wrapper">
-                                    <PaymentProgressbar number={1} />
-
-                                    {payment.typeSubscribe ===
-                                    "test-subscribe" ? (
-                                        <p className="payment-form__description">
-                                            Мы спишем 1₽ и вернём его обратно,
-                                            чтобы подтвердить, что вы настоящий
-                                            человек
-                                        </p>
-                                    ) : null}
+                            <div className="reglog-wrapper space-between">
+                                <div className="reglog-form-wrapper">
+                                    <ReglogProgressbar number={1} />
 
                                     <div
-                                        className="payment-form"
-                                        id="payment-form"
+                                        className="reglog-form-payment"
+                                        id="reglog-form-payment"
                                     ></div>
                                 </div>
-
-                                <div className="payment-subscribe-block-wrapper">
+                                <div className="reglog-product-wrapper">
+                                    <ReglogBuyBlock />
                                 </div>
                             </div>
                         </div>

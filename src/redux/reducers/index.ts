@@ -8,8 +8,8 @@ import register from './register';
 import login from './login';
 import password_recovery from './password_recovery';
 import user from './user';
-// import passing from './passing';
-import payment from './payment';
+import passing from './passing';
+import paymentCourse from './payment/paymentCourse';
 
 export const rootReducer = combineReducers({
 	courses,
@@ -19,8 +19,8 @@ export const rootReducer = combineReducers({
 	login,
 	password_recovery,
 	user,
-	// passing,
-	payment,
+	passing,
+	paymentCourse,
 	form: formReducer
 })
 

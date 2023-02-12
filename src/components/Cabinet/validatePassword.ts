@@ -21,9 +21,9 @@ export const validatePassword = (values: validatePasswordValues) => {
     } else if (/[А-Яа-яЁё]/i.test(values.currentPassword)) {
         errors.currentPassword = "Поле не может содержать кириллицу";
     } else if (values.currentPassword.length > defaultMax) {
-        errors.currentPassword = `No more ${defaultMax} symbols`;
+        errors.currentPassword = `No more than ${defaultMax} characters`;
     } else if (values.currentPassword.length < defaultMin) {
-        errors.currentPassword = `Not less than ${defaultMin} symbols`;
+        errors.currentPassword = `At least ${defaultMin} characters`;
     }
 
     if (!values.newPassword) {
@@ -31,9 +31,9 @@ export const validatePassword = (values: validatePasswordValues) => {
     } else if (/[А-Яа-яЁё]/i.test(values.newPassword)) {
         errors.newPassword = "Поле не может содержать кириллицу";
     } else if (values.newPassword.length > defaultMax) {
-        errors.newPassword = `No more ${defaultMax} symbols`;
+        errors.newPassword = `No more than ${defaultMax} characters`;
     } else if (values.newPassword.length < defaultMin) {
-        errors.newPassword = `Not less than ${defaultMin} symbols`;
+        errors.newPassword = `At least ${defaultMin} characters`;
     }
 
     if (!values.newPasswordRepeat) {
@@ -41,9 +41,9 @@ export const validatePassword = (values: validatePasswordValues) => {
     } else if (/[А-Яа-яЁё]/i.test(values.newPasswordRepeat)) {
         errors.newPasswordRepeat = "Поле не может содержать кириллицу";
     } else if (values.newPasswordRepeat.length > defaultMax) {
-        errors.newPasswordRepeat = `No more ${defaultMax} symbols`;
+        errors.newPasswordRepeat = `No more than ${defaultMax} characters`;
     } else if (values.newPasswordRepeat.length < defaultMin) {
-        errors.newPasswordRepeat = `Not less than ${defaultMin} symbols`;
+        errors.newPasswordRepeat = `At least ${defaultMin} characters`;
     } else if (values.newPassword !== values.newPasswordRepeat) {
         errors.newPasswordRepeat = `Пароли не равны`;
     }

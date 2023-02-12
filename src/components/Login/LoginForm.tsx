@@ -8,27 +8,15 @@ import {RenderInput, BtnLoader} from "../";
 
 import validate from "./validate";
 
-interface LoginFormProps {
-    registerLink?: string;
-}
-
-let LoginForm: React.FC<
-    LoginFormProps & InjectedFormProps<{}, LoginFormProps>
-> = ({handleSubmit, registerLink}) => {
+let LoginForm: React.FC<InjectedFormProps> = ({handleSubmit}) => {
     const {isSend} = useTypedSelector(({login}) => login);
 
     return (
-        <form className="reglog-block" onSubmit={handleSubmit}>
-            <div className="reglog-block-title">
-                <h2 className="reglog-block__title">Login</h2>
-                <Link
-                    to={registerLink ? registerLink : "/go/register"}
-                    className="reglog-block__subtitle"
-                >
-                    Register
-                </Link>
+        <form className="reglog-form" onSubmit={handleSubmit}>
+            <div className="reglog-form-title">
+                <h2 className="reglog-form__title">Login</h2>
             </div>
-            <div className="input reglog-block-input">
+            <div className="input reglog-form-input">
                 <Field
                     component={RenderInput}
                     type="text"
@@ -36,7 +24,7 @@ let LoginForm: React.FC<
                     label="Email"
                 />
             </div>
-            <div className="input reglog-block-input">
+            <div className="input reglog-form-input">
                 <Field
                     component={RenderInput}
                     type="password"
@@ -46,17 +34,17 @@ let LoginForm: React.FC<
             </div>
 
             {isSend ? (
-                <button className="btn reglog-block__btn disabled" disabled>
+                <button className="btn reglog-form__btn disabled" disabled>
                     <BtnLoader />
                 </button>
             ) : (
-                <button className="btn reglog-block__btn">Login</button>
+                <button className="btn reglog-form__btn">Login</button>
             )}
 
-            <div className="reglog-block-recovery">
+            <div className="reglog-form-recovery">
                 <Link
                     to="/go/password-recovery"
-                    className="reglog-block-recovery__link"
+                    className="reglog-form-recovery__link"
                 >
                     Forgot your password?
                 </Link>
@@ -65,7 +53,7 @@ let LoginForm: React.FC<
     );
 };
 
-export default reduxForm<{}, LoginFormProps>({
+export default reduxForm<{}>({
     form: "login-form",
     validate,
 })(LoginForm);

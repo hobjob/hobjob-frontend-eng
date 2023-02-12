@@ -16,12 +16,10 @@ const validate = (values: validateInfoValues) => {
 
     if (!values.password) {
         errors.password = "The field cannot be empty";
-    } else if (/[А-Яа-яЁё]/i.test(values.password)) {
-        errors.password = "Поле не может содержать кириллицу";
     } else if (values.password.length > defaultMax) {
-        errors.password = `No more ${defaultMax} symbols`;
+        errors.password = `No more than ${defaultMax} characters`;
     } else if (values.password.length < defaultMin) {
-        errors.password = `Not less than ${defaultMin} symbols`;
+        errors.password = `At least ${defaultMin} characters`;
     }
 
     if (!values.email) {
@@ -29,11 +27,11 @@ const validate = (values: validateInfoValues) => {
     } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
-        errors.email = "Invalid email";
+        errors.email = "Invalid Email";
     } else if (values.email.length > defaultMax) {
-        errors.email = `No more ${defaultMax} symbols`;
+        errors.email = `No more than ${defaultMax} characters`;
     } else if (values.email.length < defaultMin) {
-        errors.email = `Not less than ${defaultMin} symbols`;
+        errors.email = `At least ${defaultMin} characters`;
     }
 
     return errors;

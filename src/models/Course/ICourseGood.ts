@@ -1,4 +1,4 @@
-import { Image } from './IImage'
+import { Image } from '../IImage'
 
 export interface CourseGoodLessons {
 	title: string;
@@ -24,13 +24,18 @@ export interface CourseGoodTool {
 	title: string
 }
 
+export interface CourseGoodFeedbacks {
+	images: Image[]
+	mediaImages: Image[]
+}
+
 export interface CourseGood {
 	_id: string;
 	url: string;
 	title: string;
+	description: string;
 	price: number;
 	oldPrice: number;
-	description: string;
 	image: Image;
 	masterId: string;
 	category: string;

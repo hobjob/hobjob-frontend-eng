@@ -1,92 +1,46 @@
 import React from "react";
-import {useDispatch} from "react-redux";
 import {Helmet} from "react-helmet";
 import {Navigate} from "react-router-dom";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-import {checkDeclension} from "../Functions/checkDeclension";
-
-import {fetchUserCourses, hiddenUserCourse} from "../redux/actions/user";
-
-import {Loader, TrainingBlock} from "../components/";
+import {
+    Loader,
+    TrainingNull,
+    TrainingBuy,
+} from "../components/";
 
 const Training: React.FC = () => {
-    const dispatch = useDispatch();
-
-    const {userInfo, courses, isLoadedUserInfo, isLoadedUserCourses} =
-        useTypedSelector(({user}) => user);
-    const masters = useTypedSelector(({masters}) => masters.items);
+    const {userInfo, isLoadedUserInfo} = useTypedSelector(({user}) => user);
     const isLoadedMasters = useTypedSelector(({masters}) => masters.isLoaded);
 
-    React.useEffect(() => {
-        if (!Object.keys(courses).length && isLoadedUserInfo) {
-            dispatch(fetchUserCourses());
-        }
-    }, [isLoadedUserInfo]);
-
-    const onClickHiddenUserCourse = (courseId: string) => {
-        dispatch(hiddenUserCourse(courseId));
+    const isNull: () => boolean = () => {
+        return (
+            !userInfo.courses.buy.length && !userInfo.courses.subscribe.length
+        );
     };
 
     return (
         <>
             <Helmet>
-                <title>My training</title>
+                <title>Мое обучение</title>
             </Helmet>
 
             {localStorage.getItem("accessToken") ? (
-                isLoadedUserInfo && isLoadedUserCourses && isLoadedMasters ? (
+                isLoadedUserInfo && isLoadedMasters ? (
                     <>
                         <section className="training">
                             <div className="container">
                                 <div className="training-wrapper">
-                                    {Object.keys(courses).length ? (
+                                    {isNull() ? (
+                                        <TrainingNull />
+                                    ) : (
                                         <>
-                                            <h2 className="title training__title">
-                                                Мое обучение
-                                                <span>
-                                                    (
-                                                    {
-                                                        Object.keys(courses)
-                                                            .length
-                                                    }
-                                                    )
-                                                </span>
-                                            </h2>
-                                            <div className="training-block-wrapper">
-                                                {Object.keys(courses).map(
-                                                    (key, index) => (
-                                                        <TrainingBlock
-                                                            {...courses[key]}
-                                                            completedLessonsTitle={
-                                                                checkDeclension(
-                                                                    courses[key]
-                                                                        .completedLessons
-                                                                        .length,
-                                                                    [
-                                                                        "урок",
-                                                                        "урока",
-                                                                        "уроков",
-                                                                    ]
-                                                                ).title
-                                                            }
-                                                            master={
-                                                                masters[
-                                                                    courses[key]
-                                                                        .masterId
-                                                                ]
-                                                            }
-                                                            onClickHiddenUserCourse={
-                                                                onClickHiddenUserCourse
-                                                            }
-                                                            key={`training-block-${index}`}
-                                                        />
-                                                    )
-                                                )}
-                                            </div>
+                                            {userInfo.courses.buy.length ? (
+                                                <TrainingBuy />
+                                            ) : null}
                                         </>
-                                    ) : null}
+                                    )}
                                 </div>
                             </div>
                         </section>

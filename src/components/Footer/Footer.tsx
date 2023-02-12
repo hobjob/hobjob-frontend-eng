@@ -1,7 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-import LogoAryan from "../../assets/images/logo-aryan.svg";
 import LogoNagibin from "../../assets/images/nagibin-develompent.svg";
 
 const Footer: React.FC = () => {
@@ -11,17 +10,6 @@ const Footer: React.FC = () => {
                 <div className="footer-wrapper">
                     <div className="footer-block">
                         <div className="footer-block-logos">
-                            <a
-                                href="https://www.instagram.com/arenavitch/"
-                                className="footer-block-logos-logo"
-                            >
-                                <img
-                                    src={LogoAryan}
-                                    alt=""
-                                    className="footer-block-logos-logo__image"
-                                />
-                            </a>
-
                             {/* Hi, we are Nagibin's studio */}
                             <div className="nagibinstudio">
                                 <img
@@ -53,16 +41,35 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    <nav className="footer-nav">
-                        <NavLink
-                            to="/go/login"
-                            className={({isActive}) =>
-                                `footer-nav__link ${isActive ? "active" : ""}`
-                            }
-                        >
-                            Login
-                        </NavLink>
-                    </nav>
+                    <div className="footer-block footer-block-subinfo">
+                        <div className="footer-block-subinfo-block">
+                            <span className="footer-block-subinfo-block__span">
+                                © Aryan D. Nair {new Date().getFullYear()}
+                            </span>
+                        </div>
+                        <div className="footer-block-subinfo-block">
+                            <NavLink
+                                to="/policy"
+                                className={({isActive}) =>
+                                    `footer-block-subinfo-block__link ${
+                                        isActive ? "active" : ""
+                                    }`
+                                }
+                            >
+                                Policy
+                            </NavLink>
+                            <NavLink
+                                to="/public-offer"
+                                className={({isActive}) =>
+                                    `footer-block-subinfo-block__link ${
+                                        isActive ? "active" : ""
+                                    }`
+                                }
+                            >
+                                Public offer
+                            </NavLink>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
