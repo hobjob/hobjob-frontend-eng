@@ -1,28 +1,23 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {Helmet} from "react-helmet";
-import {Navigate, useSearchParams, useParams} from "react-router-dom";
-import {Link} from "react-router-dom";
+import {useSearchParams, useParams} from "react-router-dom";
+import {Link as LinkScroll} from "react-scroll";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 import {fetchCourseByUrl} from "../redux/actions/courses";
-import {addUserCourse} from "../redux/actions/user";
 
 import {
     CoursePageMain,
     CoursePageLessons,
-    CoursePageMaterials,
     CoursePageSkills,
     CoursePageUseSkills,
+    CoursePageBuy,
     CoursePagePassing,
     CoursePageTools,
-    CoursePageMaster,
     CoursePageFaq,
     Loader,
-} from "../components";
-
-import {checkIsAddCourse} from "../functions/checkIsAddCourse";
+} from "../components/";
 
 const CoursePage: React.FC = () => {
     const [search] = useSearchParams();
@@ -30,30 +25,12 @@ const CoursePage: React.FC = () => {
 
     const dispatch = useDispatch();
 
-    const {courseByUrl, isLoadedCourseByUrl} = useTypedSelector(
-        ({courses}) => courses
-    );
-    const categories = useTypedSelector(({categories}) => categories.items);
-    const isLoadedCategories = useTypedSelector(
-        ({categories}) => categories.isLoadedAllCategories
-    );
-    const masters = useTypedSelector(({masters}) => masters.items);
-    const isLoadedMasters = useTypedSelector(({masters}) => masters.isLoaded);
-    const {userInfo, isLoadedUserInfo} = useTypedSelector(({user}) => user);
+    const {isLoadedCourseByUrl} = useTypedSelector(({courses}) => courses);
 
     const [visibleButton, setVisibleButton] = React.useState(false);
 
-    const [isLogin, setIsLogin] = React.useState(false);
-    const [isAdd, setIsAdd] = React.useState(false);
-
     React.useEffect(() => {
         window.addEventListener("scroll", handlerScroll);
-
-        const ref = search.get("ref");
-
-        if (ref) {
-            localStorage.setItem("ref", ref);
-        }
     }, []);
 
     React.useEffect(() => {
@@ -66,18 +43,6 @@ const CoursePage: React.FC = () => {
         dispatch(fetchCourseByUrl(url ? url : ""));
     }, [url]);
 
-    React.useEffect(() => {
-        if (
-            localStorage.getItem("accessToken") &&
-            isLoadedUserInfo &&
-            isLoadedCourseByUrl
-        ) {
-            setIsLogin(true);
-
-            setIsAdd(checkIsAddCourse(userInfo.courses, courseByUrl._id));
-        }
-    }, [url, isLoadedUserInfo, isLoadedCourseByUrl]);
-
     const handlerScroll = () => {
         if (Math.floor(window.pageYOffset) > 200) {
             setVisibleButton(true);
@@ -86,64 +51,43 @@ const CoursePage: React.FC = () => {
         }
     };
 
-    const onClickAddCourse = () => {
-        dispatch(addUserCourse(courseByUrl._id));
-    };
-
     return (
         <>
-            {isLoadedCourseByUrl && isLoadedMasters && isLoadedCategories ? (
-                courseByUrl._id !== "" ? (
-                    <>
-                        <Helmet>
-                            <title>{courseByUrl.title}</title>
-                        </Helmet>
+            {isLoadedCourseByUrl ? (
+                <section className="course-page">
+                    <div className="container">
+                        <div className="course-page-wrapper">
+                            <LinkScroll
+                                to="price"
+                                spy={true}
+                                smooth={true}
+                                offset={-125}
+                                duration={1000}
+                                className={`course-page__btn small course-page-fixed__btn ${
+                                    visibleButton ? "visible" : ""
+                                }`}
+                            >
+                                Buy a course for<span>499₹</span> 199₹
+                            </LinkScroll>
 
-                        <Link
-                            to={`/go/register?course=${courseByUrl._id}`}
-                            className={`btn-small-round course-page__btn ${
-                                visibleButton ? "visible" : ""
-                            }`}
-                        >
-                            Buy for <span>{courseByUrl.oldPrice}₹</span>{" "}
-                            {courseByUrl.price}₹
-                        </Link>
+                            <CoursePageMain />
 
-                        <CoursePageMain
-                            {...courseByUrl}
-                            master={masters[courseByUrl.masterId]}
-                            categories={categories}
-                        />
+                            <CoursePageLessons />
 
-                        <CoursePageLessons {...courseByUrl} />
+                            <CoursePageSkills />
 
-                        {courseByUrl.materials.length ? (
-                            <CoursePageMaterials
-                                {...courseByUrl}
-                                onClickAddCourse={onClickAddCourse}
-                                isLogin={isLogin}
-                                isAdd={isAdd}
-                                isSubscribe={userInfo.subscribe.working}
-                            />
-                        ) : null}
+                            <CoursePageUseSkills />
 
-                        <CoursePageSkills {...courseByUrl} />
+                            <CoursePageBuy />
 
-                        <CoursePageUseSkills {...courseByUrl} />
+                            <CoursePagePassing />
 
-                        <CoursePagePassing />
+                            <CoursePageTools />
 
-                        <CoursePageTools {...courseByUrl} />
-
-                        <CoursePageMaster
-                            master={masters[courseByUrl.masterId]}
-                        />
-
-                        <CoursePageFaq />
-                    </>
-                ) : (
-                    <Navigate to="/course" />
-                )
+                            <CoursePageFaq />
+                        </div>
+                    </div>
+                </section>
             ) : (
                 <Loader />
             )}

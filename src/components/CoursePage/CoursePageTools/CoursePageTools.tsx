@@ -1,33 +1,29 @@
 import React from "react";
 
-import {CourseGoodTool} from "../../../models/Course/ICourseGood";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-interface CoursePageToolsProps {
-    tools: CourseGoodTool[];
-}
+import {CoursePageToolsItem} from "../../";
 
-const CoursePageTools: React.FC<CoursePageToolsProps> = ({tools}) => {
+const CoursePageTools: React.FC = () => {
+    const {
+        courseByUrl: {tools},
+    } = useTypedSelector(({courses}) => courses);
+
     return (
-        <section className="course-page-tools">
-            <div className="container">
-                <div className="course-page-tools-wrapper">
-                    <h2 className="title__mb course-page-tools__title">
-                        What is required for the course?
-                    </h2>
+        <div className="course-page-tools">
+            <h2 className="course-page__title course-page-tools__title">
+                What is required for the course?
+            </h2>
 
-                    <div className="course-page-tools-items-wrapper">
-                        {tools.map((tool, index) => (
-                            <p
-                                className="course-page-tools__item"
-                                key={`course-page-tools-${index}__item`}
-                            >
-                                {tool.title}
-                            </p>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
+            <ul className="course-page-tools-list">
+                {tools.map((item, index) => (
+                    <CoursePageToolsItem
+                        {...item}
+                        key={`course-page-tool-${index}`}
+                    />
+                ))}
+            </ul>
+        </div>
     );
 };
 

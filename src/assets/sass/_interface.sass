@@ -85,7 +85,7 @@ li
 .container
 	position: relative
 	width: 95%
-	max-width: 1550px
+	max-width: 1800px
 
 	margin: 0 auto
 
@@ -107,12 +107,13 @@ li
 
 	will-change: transform
 
-	+borderRadius
+	border-radius: 100px
+
 	+SfRegular
 	+transition
 
 	&:hover
-		background-color: #e2ab74
+		background-color: #FA9471
 
 	&:active
 		+transformScale
@@ -143,7 +144,8 @@ li
 
 		will-change: transform
 
-		+borderRadius
+		border-radius: 100px
+
 		+SfRegular
 		+transition
 
@@ -155,7 +157,7 @@ li
 			border: 1px solid #E9E9E9
 
 		& > svg
-			margin-right: 5px
+			margin-left: 10px
 
 .btn-regular
 	display: inline-flex
@@ -173,7 +175,8 @@ li
 
 	will-change: transform
 
-	+borderRadius
+	border-radius: 100px
+
 	+SfRegular
 	+transition
 
@@ -181,8 +184,8 @@ li
 		+transformScale
 
 	&:hover
-		color: #e2ab74
-		border: 1px solid #e2ab74
+		color: #FA9471
+		border: 1px solid #FA9471
 
 	&.disabled
 		pointer-events: none
@@ -201,7 +204,9 @@ li
 		cursor: pointer
 		user-select: none
 		font-size: 17px
-		+borderRadius
+
+		border-radius: 100px
+
 		+SfRegular
 		+transition
 
@@ -221,7 +226,8 @@ li
 
 	will-change: transform
 
-	+borderRadius
+	border-radius: 100px
+
 	+SfRegular
 	+transition
 
@@ -246,7 +252,8 @@ li
 
 	will-change: transform
 
-	+borderRadius
+	border-radius: 100px
+
 	+SfRegular
 	+transition
 
@@ -254,7 +261,7 @@ li
 		+transformScale
 
 	&:hover
-		background-color: #e2ab74
+		background-color: #FA9471
 
 .btn-small-regular
 	border: none
@@ -272,7 +279,8 @@ li
 
 	will-change: transform
 
-	+borderRadius
+	border-radius: 100px
+
 	+SfRegular
 	+transition
 
@@ -280,8 +288,8 @@ li
 		+transformScale
 
 	&:hover
-		color: #e2ab74
-		border: 1px solid #e2ab74
+		color: #FA9471
+		border: 1px solid #FA9471
 
 	&__gray
 		border: none
@@ -297,7 +305,8 @@ li
 		cursor: pointer
 		line-height: 1.4em
 
-		+borderRadius
+		border-radius: 100px
+
 		+SfRegular
 		+transition
 
@@ -311,7 +320,7 @@ li
 	border-radius: 100px
 	user-select: none
 
-	padding: 13px 23px
+	padding: 15px 23px
 	font-size: 17px
 
 	background-color: $mainColor
@@ -329,7 +338,7 @@ li
 		+transformScale
 
 	&:hover
-		background-color: #e2ab74
+		background-color: #FA9471
 
 	& > svg
 		margin-right: 5px
@@ -350,7 +359,7 @@ li
 	border-radius: 100px
 	user-select: none
 
-	padding: 13px 23px
+	padding: 15px 23px
 	font-size: 17px
 
 	background-color: $borderGray
@@ -408,10 +417,10 @@ li
 	border-radius: 100px
 	user-select: none
 
-	padding: 13px 23px
+	padding: 15px 23px
 	font-size: 17px
 
-	background-color: $white
+	background-color: transparent
 	border: 1px solid $mainColor
 	color: $mainColor
 
@@ -427,8 +436,8 @@ li
 		+transformScale
 
 	&:hover
-		color: #e2ab74
-		border: 1px solid #e2ab74
+		color: #FA9471
+		border: 1px solid #FA9471
 
 	&.disabled
 		pointer-events: none
@@ -440,55 +449,55 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active
-	-webkit-box-shadow: 0 0 0 30px white inset !important
+	-webkit-box-shadow: 0 0 0 30px $backgroundGray inset !important
 
 .input
+	&.error &__field
+		background-color: $lightRedColor
+
+		&::placeholder
+			color: $red
+
+	&.error &-state
+		color: $red
+
 	&__field
-		background-color: transparent
-		resize: none
-		outline: none
-		font-size: 21px
-		padding: 15px 0
 		display: block
 		width: 100%
+
+		resize: none
+		outline: none
+
+		font-size: 18px
+
+		padding: 20px
+
+		background-color: $backgroundGray
 		border: none
-		border-bottom: 1px solid $gray
-		line-height: 1.4em
+
+		+borderRadius
+
 		+transition
 		+SfRegular
 
-		&:focus ~ label,
-		&:valid ~ label
-			top: -15px
-			font-size: 16px
-
-		&.error
-			border-bottom: 1px solid $red
-
-	&__label
-		color: $gray
-		font-size: 18px
-		position: absolute
-		pointer-events: none
-		top: 10px
-		+transition
-
-		&.error
-			color: $red
-
-		&.active
-			top: -15px
-			font-size: 14px
+		&::placeholder
+			font-size: 18px
+			color: $gray
+			+transition
 
 	&-state
 		position: absolute
-		right: 0
+		right: 20px
 		top: 50%
 		transform: translateY(-50%)
 
 		height: 18px
 		min-width: 70px
 		overflow: hidden
+
+		color: $gray
+
+		+transition
 
 		&__visible
 			position: absolute
@@ -500,7 +509,6 @@ input:-webkit-autofill:active
 			user-select: none
 			cursor: pointer
 			font-size: 15px
-			color: $gray
 			+transition
 
 			&.active
@@ -516,7 +524,6 @@ input:-webkit-autofill:active
 			user-select: none
 			cursor: pointer
 			font-size: 15px
-			color: $gray
 			+transition
 
 			&.active
@@ -698,15 +705,6 @@ input[type="file"]
 		pointer-events: none
 		+transition
 
-// nagibinstudio
-.nagibinstudio
-	will-change: transform
-
-	+transition
-
-	&:active
-		+transformScale
-
 // loader
 .ball-pulse
 	display: flex
@@ -722,7 +720,7 @@ input[type="file"]
 		margin: 25% 0 0 25%
 		width: 50%
 		height: 50%
-		background-color: #FFE9D3
+		background-color: $mainColor
 		border-radius: 50%
 		animation: ballPulse 1s ease-in-out infinite
 

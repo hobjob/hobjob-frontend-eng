@@ -4,121 +4,37 @@
 	+openAnimation
 
 	&-wrapper
-		padding: 25px 0 15px 0
-
-		border-top: 1px solid $borderGray
-
-	&-block
 		display: flex
 		justify-content: space-between
 		align-items: center
 
-		&-logos
-			&-logo
-				&__img
-					display: block
-					user-select: none
-					width: 65px
+		border-top: 1px solid $borderGray
 
-					will-change: transform
+		padding: 50px 0
 
-					+transition
+	&-logos
+		display: flex
+		align-items: center
 
-					&:active
-						+transformScale
+		&-item
+			margin-left: 50px
 
-		&-contact
-			&-email-wrapper
-				display: flex
+			&__image
+				width: 200px
 
-			&-email
-				margin-right: 15px
+				user-select: none
+				pointer-events: none
 
-				padding: 8px 12px
+	&__link
+		font-size: 42px
+		color: $mainColor
 
-				min-width: 250px
+		border-bottom: 2px solid $mainColor
 
-				background-color: $backgroundGray
+		& > span
+			display: block
+			border: none
 
-				border-radius: 15px
+			opacity: 0.7
 
-				will-change: transform
-
-				+transition
-
-				&:active
-					+transformScale
-
-				&:last-child
-					margin-right: 0
-
-				&__subtitle
-					font-size: 16px
-					margin-bottom: 5px
-
-				&__email
-					font-size: 22px
-
-			&-socials
-				display: flex
-				align-items: center
-
-				margin-bottom: 25px
-
-				&__link
-					margin-right: 15px
-
-					will-change: transform
-
-					+transition
-
-					& > svg
-						width: 50px
-
-					&:active
-						+transformScale
-
-					&:last-child
-						margin-right: 0
-
-		&-nav
-			&__link
-				display: block
-				margin-bottom: 15px
-				+transition
-
-				&:last-child
-					margin-right: 0
-
-				&.active
-					color: $mainColor
-
-				&:hover
-					color: $mainColor
-
-		&-subinfo
-			margin-top: 25px
-
-			padding-top: 15px
-			border-top: 1px solid $borderGray
-
-			&-block
-				&__link
-					margin-left: 25px
-					font-size: 15px
-					color: $gray
-
-					+transition
-
-					&.active
-						color: $black
-
-					&:hover
-						color: $black
-
-					&:first-child
-						margin-left: 0
-
-				&__span
-					color: $gray
-					font-size: 15px
+			font-size: 28px

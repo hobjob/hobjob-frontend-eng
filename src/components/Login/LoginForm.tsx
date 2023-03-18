@@ -40,15 +40,6 @@ let LoginForm: React.FC<InjectedFormProps> = ({handleSubmit}) => {
             ) : (
                 <button className="btn reglog-form__btn">Login</button>
             )}
-
-            <div className="reglog-form-recovery">
-                <Link
-                    to="/go/password-recovery"
-                    className="reglog-form-recovery__link"
-                >
-                    Forgot your password?
-                </Link>
-            </div>
         </form>
     );
 };

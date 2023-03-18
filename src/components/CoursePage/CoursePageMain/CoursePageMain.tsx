@@ -1,85 +1,42 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link as LinkScroll} from "react-scroll";
 
-import {CourseGood} from "../../../models/Course/ICourseGood";
-import {Category} from "../../../models/ICategory";
-import {Master} from "../../../models/IMaster";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-interface CoursePageMainProps extends CourseGood {
-    categories: {[key: string]: Category};
-    master: Master;
-}
+import CoursePageMainText from "../../../assets/images/course-page-main-text.svg";
 
-const CoursePageMain: React.FC<CoursePageMainProps> = ({
-	_id,
-    category,
-    title,
-    description,
-    master,
-    categories,
-    image,
-    price,
-    oldPrice,
-}) => {
+const CoursePageMain: React.FC = () => {
+    const {
+        courseByUrl: {title, description, oldPrice, price},
+    } = useTypedSelector(({courses}) => courses);
+
     return (
-        <section className="course-page-main">
-            <div className="container">
-                <div className="course-page-main-wrapper">
-                    <div className="course-page-main-text">
-                        <div className="course-page-main-text-subinfo">
-                            {categories[category] ? (
-                                <a
-                                    href={`/course/?categories=${categories[category].transfer}`}
-                                    className="category course-page-main-text-subinfo__category"
-                                >
-                                    {categories[category].title}
-                                </a>
-                            ) : null}
-                        </div>
-                        <h2 className="course-page-main-text__title">
-                            {title}
-                        </h2>
-                        <p className="description course-page-main-text__description">
-                            {description}
-                        </p>
+        <div className="course-page-main">
+            <div className="course-page-main-text">
+                <h1 className="course-page-main-text__title">{title}</h1>
 
-                        {master ? (
-                            <Link
-                                to={`/master/${master._id}`}
-                                className="course-page-main-text-master"
-                            >
-                                <div
-                                    className="course-page-main-text-master-avatar"
-                                    style={{
-                                        backgroundImage: `url('${process.env.REACT_APP_IMAGE_DOMEN}/${master.avatar.size_512}')`,
-                                    }}
-                                ></div>
-                                <h4 className="course-page-main-text-master__name">
-                                    {master ? (
-                                        <>
-                                            {master.name} {master.surname}
-                                        </>
-                                    ) : null}
-                                </h4>
-                            </Link>
-                        ) : null}
-
-                        <Link
-                            to={`/go/register?course=${_id}`}
-                            className="btn course-page-main-text__btn"
-                        >
-                            Buy for <span>{oldPrice}₹</span> {price}₹
-                        </Link>
-                    </div>
-                    <div
-                        className="course-page-main-image"
-                        style={{
-                            backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${image.size_1536}")`,
-                        }}
-                    ></div>
+                <div className="course-page-main-text-description">
+                    <p className="course-page-main-text-description__description">
+                        {description}
+                    </p>
+                    <LinkScroll
+                        to="price"
+                        spy={true}
+                        smooth={true}
+                        offset={-125}
+                        duration={1000}
+                        className="course-page__btn course-page-main-text-description__btn"
+                    >
+                        Buy a course for <span>{oldPrice}₹</span> {price}₹
+                    </LinkScroll>
+                    <img
+                        src={CoursePageMainText}
+                        alt=""
+                        className="course-page-main-text-description__btnimage"
+                    />
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

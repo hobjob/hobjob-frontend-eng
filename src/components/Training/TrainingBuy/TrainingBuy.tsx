@@ -8,7 +8,6 @@ import {checkDeclension} from "../../../functions/checkDeclension";
 
 const TrainingSubscribe: React.FC = () => {
     const {userInfo} = useTypedSelector(({user}) => user);
-    const masters = useTypedSelector(({masters}) => masters.items);
 
     return (
         <div className="training-section-wrapper">
@@ -20,7 +19,7 @@ const TrainingSubscribe: React.FC = () => {
                 {userInfo.courses.buy.map((course, index) => (
                     <TrainingBuyBlock
                         {...course}
-                        master={masters[course.masterId]}
+                        master={"123"}
                         completedLessonsTitle1={
                             checkDeclension(course.completedLessons.length, [
                                 "Пройден",

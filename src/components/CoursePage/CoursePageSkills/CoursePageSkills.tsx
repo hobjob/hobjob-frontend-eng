@@ -1,33 +1,29 @@
 import React from "react";
 
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+
 import {CoursePageSkillsItem} from "../../";
 
-import {CourseGoodSkill} from "../../../models/Course/ICourseGood";
+const CoursePageSkills: React.FC = () => {
+    const {
+        courseByUrl: {skills},
+    } = useTypedSelector(({courses}) => courses);
 
-interface CoursePageSkillsProps {
-    skills: CourseGoodSkill[];
-}
-
-const CoursePageSkills: React.FC<CoursePageSkillsProps> = ({skills}) => {
     return (
-        <section className="course-page-skills">
-            <div className="container">
-                <div className="course-page-skills-wrapper">
-                    <h2 className="title__mb course-page-skills__title">
-                        You will learn:
-                    </h2>
+        <div className="course-page-skills">
+            <h2 className="course-page__title course-page-skills__title">
+                You will learn:
+            </h2>
 
-                    <div className="course-page-skills-items-wrapper">
-                        {skills.map((skill, index) => (
-                            <CoursePageSkillsItem
-                                {...skill}
-                                key={`course-page-skills-item-${index}`}
-                            />
-                        ))}
-                    </div>
-                </div>
+            <div className="course-page-skills-items-wrapper">
+                {skills.map((item, index) => (
+                    <CoursePageSkillsItem
+                        {...item}
+                        key={`course-page-skills-item-${index}`}
+                    />
+                ))}
             </div>
-        </section>
+        </div>
     );
 };
 

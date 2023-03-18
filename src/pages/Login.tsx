@@ -21,6 +21,7 @@ const Login: React.FC = () => {
             <Helmet>
                 <title>Login</title>
             </Helmet>
+
             {!localStorage.getItem("accessToken") ? (
                 <section className="reglog">
                     <div className="container">
@@ -32,7 +33,7 @@ const Login: React.FC = () => {
                     </div>
                 </section>
             ) : (
-                <Navigate to="/" />
+                <Navigate to="/go/training" />
             )}
         </>
     );

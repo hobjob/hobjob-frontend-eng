@@ -1,10 +1,10 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import {CourseGoodLessons} from "../../../models/Course/ICourseGood";
 
 interface CoursePageLessonsItemProps extends CourseGoodLessons {
     num: number;
-    courseId: string;
 
     openVideoPlaecholder: () => void;
     closeVideoPlaecholder: () => void;

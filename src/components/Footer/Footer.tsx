@@ -1,75 +1,41 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 
-import LogoNagibin from "../../assets/images/nagibin-develompent.svg";
+import LogoNagibin from "../../assets/images/nagibin-dev.svg";
+import Logo from "../../assets/images/logo-aryan.svg";
 
 const Footer: React.FC = () => {
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-wrapper">
-                    <div className="footer-block">
-                        <div className="footer-block-logos">
-                            {/* Hi, we are Nagibin's studio */}
-                            <div className="nagibinstudio">
-                                <img
-                                    src={LogoNagibin}
-                                    alt=""
-                                    className="nagibinstudio__img"
-                                    style={{
-                                        width: "300px",
-                                        userSelect: "none",
-                                    }}
-                                />
-                            </div>
+                    <div className="footer-logos">
+                        {/* Hi, we are Nagibin's studio */}
+                        <div className="nagibinstudio">
+                            <img
+                                src={LogoNagibin}
+                                alt=""
+                                className="nagibinstudio__img"
+                                style={{
+                                    width: "350px",
+                                    userSelect: "none",
+                                }}
+                            />
                         </div>
 
-                        <div className="footer-block-contact">
-                            <div className="footer-block-contact-email-wrapper">
-                                <a
-                                    href="mailto:support@hobjob.ru"
-                                    className="footer-block-contact-email"
-                                >
-                                    <span className="subtitle footer-block-contact-email__subtitle">
-                                        Support
-                                    </span>
-                                    <span className="footer-block-contact-email__email">
-                                        support@hobjob.ru
-                                    </span>
-                                </a>
-                            </div>
+                        <div className="footer-logos-item">
+                            <img
+                                src={Logo}
+                                alt="arenavitch"
+                                className="footer-logos-item__image"
+                            />
                         </div>
                     </div>
-
-                    <div className="footer-block footer-block-subinfo">
-                        <div className="footer-block-subinfo-block">
-                            <span className="footer-block-subinfo-block__span">
-                                © Aryan D. Nair {new Date().getFullYear()}
-                            </span>
-                        </div>
-                        <div className="footer-block-subinfo-block">
-                            <NavLink
-                                to="/policy"
-                                className={({isActive}) =>
-                                    `footer-block-subinfo-block__link ${
-                                        isActive ? "active" : ""
-                                    }`
-                                }
-                            >
-                                Policy
-                            </NavLink>
-                            <NavLink
-                                to="/public-offer"
-                                className={({isActive}) =>
-                                    `footer-block-subinfo-block__link ${
-                                        isActive ? "active" : ""
-                                    }`
-                                }
-                            >
-                                Public offer
-                            </NavLink>
-                        </div>
-                    </div>
+                    <a
+                        href="mailto:aryan.uzumaki@gmail.com"
+                        className="footer__link"
+                    >
+                        <span>Support:</span> aryan.uzumaki@gmail.com
+                    </a>
                 </div>
             </div>
         </footer>

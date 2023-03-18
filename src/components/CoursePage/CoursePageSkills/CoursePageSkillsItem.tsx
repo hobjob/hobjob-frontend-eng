@@ -9,7 +9,6 @@ const CoursePageSkillsItem: React.FC<CourseGoodSkill> = ({
     return (
         <div className="course-page-skills-item">
             <h3 className="course-page-skills-item__title">{title}</h3>
-
             <p className="course-page-skills-item__description">
                 {description}
             </p>

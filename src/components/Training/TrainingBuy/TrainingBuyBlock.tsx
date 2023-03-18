@@ -2,12 +2,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import {UserInfoCourseBuy} from "../../../models/User/IUserInfo";
-import {Master} from "../../../models/IMaster";
 
 interface TrainingBlockProps extends UserInfoCourseBuy {
     completedLessonsTitle1: string;
     completedLessonsTitle2: string;
-    master: Master;
+    master: string;
 }
 
 const TrainingBlock: React.FC<TrainingBlockProps> = ({
@@ -96,7 +95,7 @@ const TrainingBlock: React.FC<TrainingBlockProps> = ({
                     <div className="training-section-block-text-auth">
                         {master ? (
                             <p className="training-section-block-text-auth__auth">
-                                {master.name} {master.surname}
+                                {master}
                             </p>
                         ) : null}
                     </div>

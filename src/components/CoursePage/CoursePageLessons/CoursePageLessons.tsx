@@ -1,16 +1,15 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link as LinkScroll} from "react-scroll";
+
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 import {CoursePageLessonsVideo, CoursePageLessonsItem} from "../../";
 
-import {CourseGood} from "../../../models/Course/ICourseGood";
+const CoursePageLessons: React.FC = () => {
+    const {
+        courseByUrl: {_id, lessons},
+    } = useTypedSelector(({courses}) => courses);
 
-const CoursePageLessons: React.FC<CourseGood> = ({
-    lessons,
-    _id,
-    oldPrice,
-    price,
-}) => {
     const [videoPlaecholder, setVideoPlaecholder] =
         React.useState<boolean>(false);
     const [videoPlaecholderAnimateClose, setVideoPlaecholderAnimateClose] =
@@ -45,15 +44,19 @@ const CoursePageLessons: React.FC<CourseGood> = ({
                                 }`}
                             >
                                 <p className="course-page-lessons-video-plaecholder__description">
-                                    To continue viewing other lessons, buy the
+                                    To continue viewing other lessons, buy this
                                     course
                                 </p>
-                                <Link
-                                    to={`/go/register?course=${_id}`}
+                                <LinkScroll
+                                    to="price"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-125}
+                                    duration={1000}
                                     className="course-page-lessons-video-plaecholder__link"
                                 >
-                                    Buy for <span>{oldPrice}₹</span> {price}₹
-                                </Link>
+                                    Start learning
+                                </LinkScroll>
                             </div>
                         ) : null}
 
@@ -79,7 +82,6 @@ const CoursePageLessons: React.FC<CourseGood> = ({
                                     closeVideoPlaecholder={
                                         closeVideoPlaecholder
                                     }
-                                    courseId={_id}
                                     {...lesson}
                                 />
                             ))}

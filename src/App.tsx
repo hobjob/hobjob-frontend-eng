@@ -8,18 +8,8 @@ import {Header, Footer} from "./components/";
 import {
     CoursePage,
     Login,
-    PasswordRecoveryEmail,
-    PasswordRecoveryNewPassword,
     Training,
     PassingCourse,
-    Cabinet,
-    Register,
-    PaymentCourse,
-    PaymentStatus,
-    PaymentError,
-    Policy,
-    PublicOffer,
-    CabinetSubscribeDisable,
 } from "./pages/";
 
 declare global {
@@ -63,51 +53,13 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/course/:url" element={<CoursePage />} />
 
-                        <Route
-                            path="/payment/course/:number"
-                            element={<PaymentCourse />}
-                        />
-
-                        <Route
-                            path="/payment/status/:number"
-                            element={<PaymentStatus />}
-                        />
-
-                        <Route
-                            path="/payment/error"
-                            element={<PaymentError />}
-                        />
-
-                        <Route path="/policy" element={<Policy />} />
-
-                        <Route path="/public-offer" element={<PublicOffer />} />
-
                         <Route path="/go/login" element={<Login />} />
-
-                        <Route path="/go/register" element={<Register />} />
-
-                        <Route
-                            path="/go/password-recovery"
-                            element={<PasswordRecoveryEmail />}
-                        />
-
-                        <Route
-                            path="/go/password-recovery/:hash"
-                            element={<PasswordRecoveryNewPassword />}
-                        />
 
                         <Route path="/go/training" element={<Training />} />
 
                         <Route
                             path="/go/passing/:id/:num"
                             element={<PassingCourse />}
-                        />
-
-                        <Route path="/go/cabinet" element={<Cabinet />} />
-
-                        <Route
-                            path="/go/cabinet/subscribe/disable"
-                            element={<CabinetSubscribeDisable />}
                         />
 
                         <Route

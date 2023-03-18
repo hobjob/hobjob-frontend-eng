@@ -33,21 +33,17 @@ const CoursePageFaq: React.FC = () => {
 
     return (
         <section className="course-page-faq">
-            <div className="container">
-                <div className="course-page-faq-wrapper">
-                    <h2 className="title__mb course-page-faq__title">
-                        Frequently asked Questions
-                    </h2>
+            <h2 className="course-page__title course-page-faq__title">
+                Frequently asked Questions
+            </h2>
 
-                    <div className="course-page-faq-items-wrapper">
-                        {items.map((item, index) => (
-                            <CoursePageFaqItem
-                                {...item}
-                                key={`course-page-faq-item-${index}`}
-                            />
-                        ))}
-                    </div>
-                </div>
+            <div className="course-page-faq-items-wrapper">
+                {items.map((item, index) => (
+                    <CoursePageFaqItem
+                        {...item}
+                        key={`course-page-faq-item-${index}`}
+                    />
+                ))}
             </div>
         </section>
     );
