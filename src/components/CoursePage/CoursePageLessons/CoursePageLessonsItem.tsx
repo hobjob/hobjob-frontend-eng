@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 import {CourseGoodLessons} from "../../../models/Course/ICourseGood";
 
@@ -23,12 +22,7 @@ const CoursePageLessonsItem: React.FC<CoursePageLessonsItemProps> = ({
             className="course-page-lessons-list-item"
             onClick={num === 1 ? closeVideoPlaecholder : openVideoPlaecholder}
         >
-            <div className="course-page-lessons-list-item-top">
-                <h4 className="course-page-lessons-list-item-top__title">
-                    <span>{num}.</span>
-                    {title}
-                </h4>
-            </div>
+            <h4 className="course-page-lessons-list-item__title">{title}</h4>
             {description ? (
                 <p className="course-page-lessons-list-item__description">
                     {description}

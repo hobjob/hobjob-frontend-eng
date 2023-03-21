@@ -4,22 +4,15 @@ import {Navigate} from "react-router-dom";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-import {Loader, TrainingNull, TrainingBuy} from "../components/";
+import {Loader, TrainingBuy} from "../components/";
 
 const Training: React.FC = () => {
     const {userInfo, isLoadedUserInfo} = useTypedSelector(({user}) => user);
-    // const isLoadedMasters = useTypedSelector(({masters}) => masters.isLoaded);
-
-    // const isNull: () => boolean = () => {
-    //     return (
-    //         !userInfo.courses.buy.length && !userInfo.courses.subscribe.length
-    //     );
-    // };
 
     return (
         <>
             <Helmet>
-                <title>Мое обучение</title>
+                <title>My training</title>
             </Helmet>
 
             {localStorage.getItem("accessToken") ? (
@@ -27,17 +20,11 @@ const Training: React.FC = () => {
                     <>
                         <section className="training">
                             <div className="container">
-                                {/* <div className="training-wrapper">
-                                    {isNull() ? (
-                                        <TrainingNull />
-                                    ) : (
-                                        <>
-                                            {userInfo.courses.buy.length ? (
-                                                <TrainingBuy />
-                                            ) : null}
-                                        </>
-                                    )}
-                                </div> */}
+                                <div className="training-wrapper">
+                                    {userInfo.courses.length ? (
+                                        <TrainingBuy />
+                                    ) : null}
+                                </div>
                             </div>
                         </section>
                     </>

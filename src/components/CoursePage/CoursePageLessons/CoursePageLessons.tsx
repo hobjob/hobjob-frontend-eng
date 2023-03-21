@@ -51,7 +51,7 @@ const CoursePageLessons: React.FC = () => {
                                     to="price"
                                     spy={true}
                                     smooth={true}
-                                    offset={-125}
+                                    offset={0}
                                     duration={1000}
                                     className="course-page-lessons-video-plaecholder__link"
                                 >
@@ -73,7 +73,7 @@ const CoursePageLessons: React.FC = () => {
 
                         <div className="course-page-lessons-list-item-shadow"></div>
 
-                        <div className="course-page-lessons-list-item-wrapper">
+                        <div className="course-page-lessons-list-items-wrapper">
                             {lessons.map((lesson, index) => (
                                 <CoursePageLessonsItem
                                     key={`course-page-lessons-list-item-${index}`}

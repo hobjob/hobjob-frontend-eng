@@ -12,9 +12,7 @@ const TrainingSubscribe: React.FC = () => {
     return (
         <div className="training-section-wrapper">
             <div className="training-section">
-                <h3 className="title__mb training-section__title">
-                    Курсы купленные навсегда
-                </h3>
+                <h3 className="title__mb training-section__title">Курсы</h3>
 
                 {userInfo.courses.buy.map((course, index) => (
                     <TrainingBuyBlock
@@ -22,16 +20,16 @@ const TrainingSubscribe: React.FC = () => {
                         master={"123"}
                         completedLessonsTitle1={
                             checkDeclension(course.completedLessons.length, [
-                                "Пройден",
-                                "Пройдено",
-                                "Пройдено",
+                                "Passed",
+                                "Passed",
+                                "Passed",
                             ]).text
                         }
                         completedLessonsTitle2={
                             checkDeclension(course.completedLessons.length, [
-                                "урок",
-                                "урока",
-                                "уроков",
+                                "lesson",
+                                "lesson",
+                                "lessons",
                             ]).title
                         }
                         key={`training-section-block-${index}`}

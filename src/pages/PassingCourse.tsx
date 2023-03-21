@@ -29,8 +29,8 @@ const PassingCourse: React.FC = () => {
     const {isLoadedUserInfo} = useTypedSelector(({user}) => user);
     const {course, isLoadedCourse} = useTypedSelector(({passing}) => passing);
 
-    const isLoadedMasters = useTypedSelector(({masters}) => masters.isLoaded);
-    const masters = useTypedSelector(({masters}) => masters.items);
+    // const isLoadedMasters = useTypedSelector(({masters}) => masters.isLoaded);
+    // const masters = useTypedSelector(({masters}) => masters.items);
 
     // Array of lessons starts at zero
     const lessonIndex = lessonNum - 1;
@@ -52,7 +52,7 @@ const PassingCourse: React.FC = () => {
     return (
         <>
             {localStorage.getItem("accessToken") ? (
-                isLoadedCourse && isLoadedUserInfo && isLoadedMasters ? (
+                isLoadedCourse && isLoadedUserInfo ? (
                     <>
                         <Helmet>
                             <title>

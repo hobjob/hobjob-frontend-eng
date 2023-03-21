@@ -13,16 +13,9 @@ const CoursePageUseSkills: React.FC = () => {
 
     return (
         <div className="course-page-use-skills">
-            <img
-                src={CoursePageUseSkillsImage}
-                alt=""
-                className="course-page-use-skills__image"
-            />
-
             <h2 className="course-page__title course-page-use-skills__title">
                 By the end of the course you will be able to:
             </h2>
-
             <div className="course-page-use-skills-items-wrapper">
                 {useSkills.map((item, index) => (
                     <CoursePageUseSkillsItem
@@ -30,7 +23,13 @@ const CoursePageUseSkills: React.FC = () => {
                         key={`course-page-use-skills-item-${index}`}
                     />
                 ))}
-            </div>
+			</div>
+			
+            <img
+                src={CoursePageUseSkillsImage}
+                alt=""
+                className="course-page-use-skills__image"
+            />
         </div>
     );
 };

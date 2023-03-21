@@ -1,6 +1,8 @@
 import React from "react";
 
 import CoursePageBuyImage from "../../../assets/images/course-page-buy-image.jpg";
+import Burger from "../../../assets/images/burger.png";
+import Love from "../../../assets/images/love.png";
 
 const CoursePageBuy: React.FC = () => {
     return (
@@ -11,22 +13,32 @@ const CoursePageBuy: React.FC = () => {
                 </h2>
                 <div className="course-page-buy-text-description">
                     <p className="course-page-buy-text-description__description">
-                        1. Scan the qr code and translate <span>199₹</span>
+                        1. Scan the QR code for my UPI (
+                        <span>aryan.uzumaki@oksbi</span>) <br /> and transfer{" "}
+                        <span>199₹</span> That's less than a burger{" "}
+                        <img src={Burger} alt="" />
                     </p>
 
                     <p className="course-page-buy-text-description__description">
-                        2. After payment, send me a direct{" "}
+                        2. After you make your payment, DM me (
                         <a href="https://www.instagram.com/arenavitch">
                             @arenavitch
-                        </a>{" "}
-                        screenshot with the translation and your email to which
-                        we will make an account with the course
+                        </a>
+                        ) on IG with the screenshot of the payment, and your
+                        email. I'll confirm your details and you'll receive an
+                        account and access to the course!
                     </p>
 
                     <p className="course-page-buy-text-description__description">
-                        3. As soon as we check the payment, I will immediately
-                        answer in direct and send you your username and password
+                        3. Once the payment is confirmed, I'll respond
+                        immediately with your username and password. And some
+                        love <img src={Love} alt="" />
                     </p>
+
+                    {/* <p className="course-page-buy-text-description__description">
+                        Если вы с телефона вот мой UPI{" "}
+                        <span>aryan.uzumaki@oksbi</span>
+                    </p> */}
                 </div>
             </div>
             <img

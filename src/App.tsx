@@ -1,16 +1,16 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 import {Route, Routes, Navigate, useLocation} from "react-router-dom";
 import {compose} from "redux";
 import "moment/locale/ru";
 
-import {Header, Footer} from "./components/";
+import { Header, Footer } from "./components/";
 
-import {
-    CoursePage,
-    Login,
-    Training,
-    PassingCourse,
-} from "./pages/";
+import { fetchUserInfo } from "./redux/actions/user";
+
+import {useTypedSelector} from "./hooks/useTypedSelector";
+
+import {CoursePage, Login, Training, PassingCourse} from "./pages/";
 
 declare global {
     interface Window {
@@ -20,7 +20,11 @@ declare global {
 }
 
 const App: React.FC = () => {
+	const dispatch = useDispatch();
+	
     const {pathname} = useLocation();
+
+    const {userInfo} = useTypedSelector(({user}) => user);
 
     React.useEffect(() => {
         let cords: any = ["scrollX", "scrollY"];
@@ -31,7 +35,12 @@ const App: React.FC = () => {
         );
 
         // Прокручиваем страницу к scrollX и scrollY из localStorage (либо 0,0 если там еще ничего нет)
-        window.scroll(...cords.map((cord: any) => localStorage[cord]));
+		window.scroll(...cords.map((cord: any) => localStorage[cord]));
+		
+        if (userInfo._id == "" && localStorage.getItem("accessToken")) {
+            dispatch(fetchUserInfo());
+        }
+
     }, []);
 
     React.useEffect(() => {

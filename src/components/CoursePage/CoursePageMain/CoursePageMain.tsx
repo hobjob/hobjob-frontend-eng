@@ -23,11 +23,11 @@ const CoursePageMain: React.FC = () => {
                         to="price"
                         spy={true}
                         smooth={true}
-                        offset={-125}
+                        offset={0}
                         duration={1000}
                         className="course-page__btn course-page-main-text-description__btn"
                     >
-                        Buy a course for <span>{oldPrice}₹</span> {price}₹
+                        Buy this course for <span>{oldPrice}₹</span> {price}₹
                     </LinkScroll>
                     <img
                         src={CoursePageMainText}

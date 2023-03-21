@@ -61,13 +61,13 @@ const CoursePage: React.FC = () => {
                                 to="price"
                                 spy={true}
                                 smooth={true}
-                                offset={-125}
+                                offset={0}
                                 duration={1000}
                                 className={`course-page__btn small course-page-fixed__btn ${
                                     visibleButton ? "visible" : ""
                                 }`}
                             >
-                                Buy a course for<span>499₹</span> 199₹
+                                Buy this course for<span>499₹</span> 199₹
                             </LinkScroll>
 
                             <CoursePageMain />

@@ -37,8 +37,6 @@ export { default as CoursePageToolsItem } from "./CoursePage/CoursePageTools/Cou
 export { default as CoursePageFaq } from "./CoursePage/CoursePageFaq/CoursePageFaq";
 export { default as CoursePageFaqItem } from "./CoursePage/CoursePageFaq/CoursePageFaqItem";
 
-// Training
-export { default as TrainingNull } from "./Training/TrainingNull";
 // TrainingBuy
 export { default as TrainingBuy } from "./Training/TrainingBuy/TrainingBuy";
 export { default as TrainingBuyBlock } from "./Training/TrainingBuy/TrainingBuyBlock";

@@ -64,8 +64,6 @@
 
 	// main
 	&-main
-		margin: 75px 0
-
 		&-text
 			display: flex
 			align-items: flex-start
@@ -94,7 +92,7 @@
 					pointer-events: none
 
 	&-lessons
-		margin: 200px 0
+		margin: 150px 0
 		+openAnimation
 
 		&-wrapper
@@ -157,6 +155,9 @@
 			position: relative
 			width: 50%
 
+			overflow: hidden
+			border-radius: 0px 0px 50px 50px
+
 			&__title
 				margin-bottom: 50px
 				font-size: 48px
@@ -166,15 +167,16 @@
 				cursor: pointer
 				display: block
 
-				padding: 25px
+				padding: 35px
 				margin-bottom: 10px
 
 				background-color: $backgroundGray
 
 				will-change: transform
 
+				border-radius: 50px
+
 				+transition
-				+borderRadiusBlock
 
 				&:hover
 					background-color: $mainColor
@@ -188,20 +190,8 @@
 				&:last-child
 					margin-bottom: 0
 
-				&-top
-					display: flex
-					align-items: center
-					justify-content: space-between
-
-					&__title
-						font-size: 32px
-
-						& > span
-							color: $gray
-							// font-size: 18px
-							margin-right: 10px
-
-							+transition
+				&__title
+					font-size: 32px
 
 				&__description
 					margin-top: 50px
@@ -218,7 +208,7 @@
 				left: 0
 				position: absolute
 
-				border-radius: 0px 0px 25px 25px
+				border-radius: 0px 0px 50px 50px
 
 				width: 100%
 				height: 50px
@@ -227,7 +217,7 @@
 
 	// skills
 	&-skills
-		margin: 200px 0
+		margin: 150px 0
 
 		padding: 75px
 		border-radius: 50px
@@ -258,15 +248,15 @@
 			border-radius: 50px
 
 			&__title
-				font-size: 32px
-				margin-bottom: 50px
+				font-size: 36px
+				margin-bottom: 25px
 
 			&__description
 				font-size: 24px
 
 	// use-skills
 	&-use-skills
-		margin: 200px 0
+		margin: 150px 0
 
 		display: flex
 		justify-content: space-between
@@ -276,7 +266,7 @@
 		&__image
 			width: 500px
 
-			left: -50px
+			left: 75px
 			bottom: -150px
 
 			position: absolute
@@ -316,8 +306,6 @@
 
 	// buy
 	&-buy
-		margin: 200px 0
-
 		width: 100%
 
 		display: flex
@@ -343,15 +331,22 @@
 						color: $mainColor
 						border-bottom: 2px solid $mainColor
 
+					& > img
+						user-select: none
+						pointer-events: none
+
+						transform: translateY(5px)
+						width: 35px
+
 		&__image
-			width: 600px
+			width: 700px
 
 			user-select: none
 			pointer-events: none
 
 	// passing
 	&-passing
-		margin: 200px 0
+		margin: 150px 0
 
 		&__title
 			margin-bottom: 150px
@@ -364,7 +359,7 @@
 
 	// tools
 	&-tools
-		margin: 200px 0
+		margin: 150px 0
 
 		display: flex
 		justify-content: space-between
@@ -392,7 +387,7 @@
 
 	// faq
 	&-faq
-		margin-top: 200px
+		margin-top: 150px
 		padding-bottom: 125px
 		margin-bottom: 50px
 
