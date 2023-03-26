@@ -31,7 +31,7 @@
 			+transformScale
 
 		&__img
-			width: 75px
+			width: 250px
 			user-select: none
 
 	&-form-wrapper
@@ -46,6 +46,26 @@
 
 		+borderRadiusBlock
 
+		&-progress
+			display: flex
+			align-items: center
+
+			margin-bottom: 50px
+
+			&__item
+				padding: 5px 15px
+				background-color: $backgroundGray
+
+				font-size: 18px
+				
+				margin-right: 15px
+
+				+borderRadiusBlock
+
+				&.active
+					background-color: $mainColor
+					color: $white
+
 		&-title
 			margin-bottom: 50px
 
@@ -53,12 +73,12 @@
 				font-size: 32px
 				margin-bottom: 20px
 
-		&__subtitle
-			display: inline-block
+			&__subtitle
+				display: inline-block
 
-			font-size: 21px
-			color: $mainColor
-			border-bottom: 1px solid $mainColor
+				font-size: 21px
+				color: $mainColor
+				border-bottom: 1px solid $mainColor
 
 		&__description
 			display: block

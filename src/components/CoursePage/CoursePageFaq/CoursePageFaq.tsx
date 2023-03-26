@@ -22,7 +22,7 @@ const CoursePageFaq: React.FC = () => {
         {
             title: "Will I still have access to the course after completion?",
             description:
-                "Access to the course is maintained for the duration of the subscription. You can watch any course that we have on the platform. ",
+                "Yes, you will have access to the course once you have completed it",
         },
         {
             title: "Where can I find a list of courses I've added to my curriculum?",

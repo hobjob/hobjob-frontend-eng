@@ -1,3 +1,6 @@
+// Register
+export { default as Register } from "./Register"
+
 // Login
 export { default as Login } from "./Login"
 

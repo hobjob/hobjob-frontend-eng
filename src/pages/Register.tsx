@@ -1,25 +1,25 @@
 import React from "react";
-import {Link, Navigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {Helmet} from "react-helmet";
 
-import {LoginForm} from "../components/";
+import {RegisterForm} from "../components/";
 
-import {sendLogin} from "../redux/actions/login";
+import {sendRegister} from "../redux/actions/register";
 
 import Logo from "../assets/images/logo-aryan.svg";
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
     const dispatch = useDispatch();
 
     const onSubmit = ({email, password}: any) => {
-        return dispatch(sendLogin({email, password}));
+        return dispatch(sendRegister({email, password}));
     };
 
     return (
         <>
             <Helmet>
-                <title>Login</title>
+                <title>Register</title>
             </Helmet>
 
             {!localStorage.getItem("accessToken") ? (
@@ -32,10 +32,10 @@ const Login: React.FC = () => {
                                     alt=""
                                     className="reglog-logo__img"
                                 />
-							</div>
-							
+                            </div>
+
                             <div className="reglog-form-wrapper">
-                                <LoginForm onSubmit={onSubmit} />
+                                <RegisterForm onSubmit={onSubmit} />
                             </div>
                         </div>
                     </div>
@@ -47,4 +47,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default Register;

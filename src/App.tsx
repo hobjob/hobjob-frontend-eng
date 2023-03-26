@@ -4,13 +4,20 @@ import {Route, Routes, Navigate, useLocation} from "react-router-dom";
 import {compose} from "redux";
 import "moment/locale/ru";
 
-import { Header, Footer } from "./components/";
+import {Header, Footer} from "./components/";
 
-import { fetchUserInfo } from "./redux/actions/user";
+import {fetchUserInfo} from "./redux/actions/user";
+import {fetchMasters} from "./redux/actions/masters";
 
 import {useTypedSelector} from "./hooks/useTypedSelector";
 
-import {CoursePage, Login, Training, PassingCourse} from "./pages/";
+import {
+    CoursePage,
+    Register,
+    Login,
+    Training,
+    PassingCourse,
+} from "./pages/";
 
 declare global {
     interface Window {
@@ -20,11 +27,12 @@ declare global {
 }
 
 const App: React.FC = () => {
-	const dispatch = useDispatch();
-	
+    const dispatch = useDispatch();
+
     const {pathname} = useLocation();
 
-    const {userInfo} = useTypedSelector(({user}) => user);
+    const {userInfo, isLoadedUserInfo} = useTypedSelector(({user}) => user);
+    const masters = useTypedSelector(({masters}) => masters.items);
 
     React.useEffect(() => {
         let cords: any = ["scrollX", "scrollY"];
@@ -35,12 +43,15 @@ const App: React.FC = () => {
         );
 
         // Прокручиваем страницу к scrollX и scrollY из localStorage (либо 0,0 если там еще ничего нет)
-		window.scroll(...cords.map((cord: any) => localStorage[cord]));
-		
+        window.scroll(...cords.map((cord: any) => localStorage[cord]));
+
         if (userInfo._id == "" && localStorage.getItem("accessToken")) {
             dispatch(fetchUserInfo());
         }
 
+        if (!Object.keys(masters).length) {
+            dispatch(fetchMasters());
+        }
     }, []);
 
     React.useEffect(() => {
@@ -54,13 +65,15 @@ const App: React.FC = () => {
                 pathname.indexOf("/login") !== -1 ||
                 pathname.indexOf("/register") !== -1 ||
                 pathname === "/go/password-recovery" ||
-                pathname.indexOf("/go/password-recovery") !== -1 ? null : (
+                pathname.indexOf("/go/password-recovery") !== -1 || (!userInfo.working &&  isLoadedUserInfo) ? null : (
                     <Header />
                 )}
 
                 <React.Suspense fallback={<></>}>
                     <Routes>
                         <Route path="/course/:url" element={<CoursePage />} />
+
+                        <Route path="/go/register" element={<Register />} />
 
                         <Route path="/go/login" element={<Login />} />
 

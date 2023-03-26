@@ -1,8 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 
-import {updateCountViewingDuration} from "../../redux/actions/user";
-
 import $api from "../../http/";
 
 import {VideoPlayer} from "../";
@@ -53,8 +51,6 @@ const PassingVideo: React.FC<PassingVideoProps> = ({
     };
 
     const callbackPause = () => {
-        dispatch(updateCountViewingDuration(courseId, lessonIndex, duration));
-
         setPlay(false);
     };
 

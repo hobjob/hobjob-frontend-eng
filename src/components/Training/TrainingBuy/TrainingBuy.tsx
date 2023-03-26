@@ -8,34 +8,33 @@ import {checkDeclension} from "../../../functions/checkDeclension";
 
 const TrainingSubscribe: React.FC = () => {
     const {userInfo} = useTypedSelector(({user}) => user);
+    const masters = useTypedSelector(({masters}) => masters.items);
 
     return (
-        <div className="training-section-wrapper">
-            <div className="training-section">
-                <h3 className="title__mb training-section__title">Курсы</h3>
+        <div className="training-section">
+            <h3 className="title__mb training-section__title">My training</h3>
 
-                {userInfo.courses.buy.map((course, index) => (
-                    <TrainingBuyBlock
-                        {...course}
-                        master={"123"}
-                        completedLessonsTitle1={
-                            checkDeclension(course.completedLessons.length, [
-                                "Passed",
-                                "Passed",
-                                "Passed",
-                            ]).text
-                        }
-                        completedLessonsTitle2={
-                            checkDeclension(course.completedLessons.length, [
-                                "lesson",
-                                "lesson",
-                                "lessons",
-                            ]).title
-                        }
-                        key={`training-section-block-${index}`}
-                    />
-                ))}
-            </div>
+            {userInfo.courses.map((course, index) => (
+                <TrainingBuyBlock
+                    {...course}
+                    master={masters[course.masterId]}
+                    completedLessonsTitle1={
+                        checkDeclension(course.completedLessons.length, [
+                            "Passed",
+                            "Passed",
+                            "Passed",
+                        ]).text
+                    }
+                    completedLessonsTitle2={
+                        checkDeclension(course.completedLessons.length, [
+                            "lesson",
+                            "lesson",
+                            "lessons",
+                        ]).title
+                    }
+                    key={`training-section-block-${index}`}
+                />
+            ))}
         </div>
     );
 };

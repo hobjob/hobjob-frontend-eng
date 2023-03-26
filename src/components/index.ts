@@ -10,6 +10,9 @@ export { default as VideoPlayer } from "./All/VideoPlayer";
 // Header
 export { default as Header } from "./Header/Header";
 
+// RegisterForm
+export { default as RegisterForm } from "./Register/RegisterForm";
+
 // Login
 export { default as LoginForm } from "./Login/LoginForm";
 
@@ -26,8 +29,6 @@ export { default as CoursePageSkillsItem } from "./CoursePage/CoursePageSkills/C
 // CoursePageUseSkills
 export { default as CoursePageUseSkills } from "./CoursePage/CoursePageUseSkills/CoursePageUseSkills";
 export { default as CoursePageUseSkillsItem } from "./CoursePage/CoursePageUseSkills/CoursePageUseSkillsItem";
-// CoursePageBuy
-export { default as CoursePageBuy } from "./CoursePage/CoursePageBuy/CoursePageBuy";
 // CoursePagePassing
 export { default as CoursePagePassing } from "./CoursePage/CoursePagePassing/CoursePagePassing";
 // CoursePageTools
@@ -37,6 +38,10 @@ export { default as CoursePageToolsItem } from "./CoursePage/CoursePageTools/Cou
 export { default as CoursePageFaq } from "./CoursePage/CoursePageFaq/CoursePageFaq";
 export { default as CoursePageFaqItem } from "./CoursePage/CoursePageFaq/CoursePageFaqItem";
 
+// Training
+// TrainingPayment
+export { default as TrainingPayment } from "./Training/TrainingPayment/TrainingPayment";
+export { default as TrainingPaymentUploadScreenshot } from "./Training/TrainingPayment/TrainingPaymentUploadScreenshot";
 // TrainingBuy
 export { default as TrainingBuy } from "./Training/TrainingBuy/TrainingBuy";
 export { default as TrainingBuyBlock } from "./Training/TrainingBuy/TrainingBuyBlock";

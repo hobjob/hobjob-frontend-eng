@@ -91,9 +91,6 @@ const PassingCourse: React.FC = () => {
 
                                     <div className="passing-lesson-info">
                                         <div className="passing-lesson-info-block-text">
-                                            <h4 className="passing-lesson-info-block-text__title">
-                                                Описание
-                                            </h4>
                                             <p className="passing-lesson-info-block-text__description">
                                                 {
                                                     course.lessons[lessonIndex]

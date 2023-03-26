@@ -16,4 +16,7 @@ export interface UserInfo {
 	email: string;
 
 	courses: UserInfoCourseBuy[];
+
+	working: boolean
+	screenshot: string
 }

@@ -8,16 +8,22 @@ import {RenderInput, BtnLoader} from "../";
 
 import validate from "./validate";
 
-let LoginForm: React.FC<InjectedFormProps> = ({handleSubmit}) => {
+let RegisterForm: React.FC<InjectedFormProps> = ({handleSubmit}) => {
     const {isSend} = useTypedSelector(({login}) => login);
 
     return (
         <form className="reglog-form" onSubmit={handleSubmit}>
-            <div className="reglog-form-title">
-                <h2 className="reglog-form-title__title">Login</h2>
+            <div className="reglog-form-progress">
+                <p className="reglog-form-progress__item active">1. Register</p>
+                <p className="reglog-form-progress__item">2. Payment</p>
+                <p className="reglog-form-progress__item">3. New Skill</p>
+            </div>
 
-                <Link to="/go/register" className="reglog-form-title__subtitle">
-                    Register
+            <div className="reglog-form-title">
+                <h2 className="reglog-form-title__title">Register</h2>
+
+                <Link to="/go/login" className="reglog-form-title__subtitle">
+                    Login
                 </Link>
             </div>
             <div className="input reglog-form-input">
@@ -42,13 +48,13 @@ let LoginForm: React.FC<InjectedFormProps> = ({handleSubmit}) => {
                     <BtnLoader />
                 </button>
             ) : (
-                <button className="btn reglog-form__btn">Login</button>
+                <button className="btn reglog-form__btn">Register</button>
             )}
         </form>
     );
 };
 
 export default reduxForm<{}>({
-    form: "login-form",
+    form: "register-form",
     validate,
-})(LoginForm);
+})(RegisterForm);

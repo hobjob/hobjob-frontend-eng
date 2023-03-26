@@ -1,5 +1,5 @@
 import React from "react";
-import {Link as LinkScroll} from "react-scroll";
+import {Link} from "react-router-dom";
 
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
@@ -47,16 +47,12 @@ const CoursePageLessons: React.FC = () => {
                                     To continue viewing other lessons, buy this
                                     course
                                 </p>
-                                <LinkScroll
-                                    to="price"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={0}
-                                    duration={1000}
+                                <Link
+                                    to="/go/register"
                                     className="course-page-lessons-video-plaecholder__link"
                                 >
                                     Start learning
-                                </LinkScroll>
+                                </Link>
                             </div>
                         ) : null}
 

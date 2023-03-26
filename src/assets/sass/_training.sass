@@ -1,17 +1,78 @@
 // training
 .training
-	margin: 50px 0
 	+openAnimation
 
-	&-section-wrapper
-		position: relative
+	&-payment
+		width: 100%
 
-		margin-bottom: 100px
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+		margin: 50px 0
+
+		&-text
+			margin-top: 35px
+
+			width: 50%
+
+			&__title
+				margin-bottom: 50px
+
+			&-description
+				&__description
+					font-size: 32px
+					margin-bottom: 35px
+
+					& > a
+						color: $mainColor
+						border-bottom: 2px solid $mainColor
+
+					& > span
+						color: $mainColor
+						border-bottom: 2px solid $mainColor
+
+					& > img
+						user-select: none
+						pointer-events: none
+
+						transform: translateY(5px)
+						width: 35px
+
+			&-image
+				margin-top: 50px
+
+				&__btn
+					width: 100%
+
+				&-confirmed
+					&__btn
+						width: 100%
+
+				&__upload
+					margin-top: 25px
+
+					width: 400px
+
+					user-select: none
+					pointer-events: none
+
+					+borderRadiusBlock
+
+		&__image
+			width: 700px
+
+			user-select: none
+			pointer-events: none
+
+	&-section
+		margin-top: 100px
+
+		position: relative
 
 		&:last-child
 			margin-bottom: 50px
 
-	&-section
 		&-block
 			position: relative
 

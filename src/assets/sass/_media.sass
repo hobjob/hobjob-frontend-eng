@@ -59,18 +59,6 @@
 
 				position: static
 
-		&-buy
-			&__image
-				width: 500px
-
-			&-text
-				&-description
-					&__description
-						font-size: 24px
-
-						& > img
-							width: 25px
-
 		&-passing
 			&__title
 				margin-bottom: 75px
@@ -96,10 +84,59 @@
 					& > p
 						width: 100%
 
+	// training
+	.training
+		&-payment
+			&-text
+				&-description
+					&__description
+						font-size: 24px
+
+						& > img
+							width: 25px
+
+			&__image
+				width: 500px
+
 	// footer
 	.footer
 		&__link
 			font-size: 32px
+
+@media screen and ( max-width: 1200px )
+	// passing
+	.passing
+		&-lesson-info
+			flex-direction: column
+
+			&-block
+				&-text, &-materials, &-middle,
+					width: 100%
+
+				&-middle
+					height: 100px
+
+				&-materials
+					margin-top: 50px
+
+		&-bottom-block
+			&-master
+				width: 100%
+
+	// reglog
+	.reglog
+		&-block-wrapper
+			width: 75%
+
+@media screen and ( max-width: 1150px )
+	// reglog
+	.reglog
+		&-wrapper
+			flex-direction: column
+
+		&-form-wrapper
+			width: 100%
+			margin-bottom: 50px
 
 @media screen and ( max-width: 1100px )
 	// course-page
@@ -146,15 +183,6 @@
 				&-item-shadow
 					display: block
 
-		&-buy
-			flex-direction: column
-
-			&-text
-				width: 100%
-
-			&__image
-				width: 70%
-
 		&-faq
 			flex-direction: column
 
@@ -165,6 +193,23 @@
 				margin-top: 50px
 
 				width: 100%
+
+	// training
+	.training
+		&-payment
+			flex-direction: column
+			align-items: center
+
+			&-text
+				margin-top: 0
+
+				width: 100%
+
+				&__title
+					margin-bottom: 25px
+
+			&__image
+				width: 70%
 
 	// footer
 	.footer
@@ -188,6 +233,49 @@
 
 					&__link
 						font-size: 36px
+
+	// passing
+	.passing
+		&-top
+			flex-direction: column
+
+			&-text
+				order: 2
+
+			&-next
+				order: 1
+				width: 100%
+				margin-bottom: 25px
+				padding-bottom: 25px
+				border-bottom: 1px solid $borderGray
+
+		&-lessons-list
+			flex-direction: column
+			padding-bottom: 0
+			margin-bottom: 25px
+
+			&-block
+				width: 100%
+				margin-bottom: 25px
+
+				&-item
+					min-width: 150px
+
+					&-cover
+						height: 100px
+
+		&-bottom-block
+			&-master
+				flex-direction: column
+				align-items: center
+
+				&-image
+					margin-right: 0
+					margin-bottom: 25px
+
+					width: 200px
+					min-width: 200px
+					height: 200px
 
 @media screen and ( max-width: 700px )
 	// course-page
@@ -259,6 +347,20 @@
 					font-size: 28px
 					margin-bottom: 25px
 
+	// reglog
+	.reglog
+		&-block-wrapper
+			width: 100%
+
+    // passing
+	.passing
+		&-lesson
+			&-info
+				&-block
+					&-text
+						&__description
+							font-size: 32px
+
 	// footer
 	.footer
 		&-logos
@@ -267,6 +369,13 @@
 			&-item
 				margin-top: 25px
 				margin-left: 0
+
+@media screen and ( max-width: 600px )
+	// reglog
+	.reglog
+		&-form
+			&__title
+				font-size: 24px
 
 @media screen and ( max-width: 500px )
 	// header
@@ -283,6 +392,9 @@
 			font-size: 32px
 
 		&__btn
+			font-size: 18px
+			padding: 20px 20px
+
 			&.small
 				font-size: 18px
 				padding: 15px 25px
@@ -323,18 +435,6 @@
 			&-items-wrapper
 				margin: 25px 0
 
-		&-buy
-			&-text
-				&__title
-					margin-bottom: 25px
-
-				&-description
-					&__description
-						margin-bottom: 25px
-
-			&__image
-				width: 100%
-
 		&-passing
 			&__title
 				margin-bottom: 25px
@@ -349,6 +449,108 @@
 
 			&-items-wrapper
 				margin-top: 25px
+
+	// training
+	.training
+		&-payment
+			margin: 25px 0
+
+			&-text
+				&__title
+					margin-bottom: 25px
+
+				&-description
+					&__description
+						margin-bottom: 25px
+
+				&-image
+					display: flex
+					flex-direction: column
+					align-items: center
+
+					&-confirmed
+						width: 100%
+
+						display: flex
+						justify-content: space-between
+
+						&__btn
+							width: 100%
+
+					&__upload
+						width: 70%
+
+			&__image
+				margin-top: 50px
+
+				width: 100%
+
+	// reglog
+	.reglog
+		&-form-wrapper
+			margin-bottom: 25px
+
+		&-form
+			padding: 35px
+
+			&-progress
+				margin-bottom: 25px
+
+				overflow-y: auto
+
+				&__item
+					white-space: nowrap
+
+					margin-right: 5px
+
+    // passing
+	.passing
+		margin: 25px 0
+
+		&-top
+			&-text
+				&__title
+					font-size: 32px
+
+		&-video
+			margin-top: 15px
+
+		&-lessons-list
+			&-block
+				&__subtitle
+					font-size: 18px
+
+				&-item
+					margin-right: 10px
+
+		&-lesson-info
+			&-block
+				&-text
+					&__description
+						font-size: 24px
+
+				&-materials
+					margin-top: 25px
+
+					&__title
+						font-size: 32px
+
+		&-bottom-block
+			padding-top: 15px
+			margin-top: 15px
+
+			&-master
+				padding: 15px
+
+				&-text
+					&__title
+						font-size: 24px
+
+					&__description
+						font-size: 18px
+
+					&__link
+						font-size: 18px
 
 	// footer
 	.nagibinstudio
@@ -368,3 +570,9 @@
 
 			& > span
 				font-size: 24px
+
+@media screen and ( max-width: 450px )
+	// reglog
+	.reglog
+		&-form
+			padding: 25px

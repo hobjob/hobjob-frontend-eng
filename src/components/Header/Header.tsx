@@ -1,9 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+
 import Logo from "../../assets/images/logo-aryan.svg";
 
 const Header: React.FC = () => {
+    const {userInfo} = useTypedSelector(({user}) => user);
+
     return (
         <header className="header">
             <div className="container">
@@ -16,9 +20,15 @@ const Header: React.FC = () => {
                         />
                     </div>
 
-                    <Link to="/go/login" className="header__link">
-                        Login →
-                    </Link>
+                    {userInfo._id !== "" ? (
+                        <Link to="/go/training" className="header__link">
+                            Training →
+                        </Link>
+                    ) : (
+                        <Link to="/go/login" className="header__link">
+                            Login →
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

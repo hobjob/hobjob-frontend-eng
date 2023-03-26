@@ -4,7 +4,7 @@ import {Navigate} from "react-router-dom";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-import {Loader, TrainingBuy} from "../components/";
+import {Loader, TrainingPayment, TrainingBuy} from "../components/";
 
 const Training: React.FC = () => {
     const {userInfo, isLoadedUserInfo} = useTypedSelector(({user}) => user);
@@ -21,9 +21,15 @@ const Training: React.FC = () => {
                         <section className="training">
                             <div className="container">
                                 <div className="training-wrapper">
-                                    {userInfo.courses.length ? (
-                                        <TrainingBuy />
-                                    ) : null}
+                                    {userInfo.working ? (
+                                        <>
+                                            {userInfo.courses.length ? (
+                                                <TrainingBuy />
+                                            ) : null}
+                                        </>
+                                    ) : (
+                                        <TrainingPayment />
+                                    )}
                                 </div>
                             </div>
                         </section>
